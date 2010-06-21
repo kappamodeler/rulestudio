@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension-point id="com.plectix.rulestudio.editor.changerule" name="changerule" schema="schema/com.plectix.rulestudio.editor.changerule.exsd"/>
+   <extension-point id="com.plectix.rulestudio.editor.changeagent" name="changeagent" schema="schema/com.plectix.rulestudio.editor.changeagent.exsd"/>
+
+   <extension point="org.eclipse.ui.editors">
+      <editor name="Kappa Editor"
+            extensions="ka" icon="images/kappaeditor.png"
+            contributorClass="org.eclipse.ui.texteditor.BasicTextEditorActionContributor"
+            class="com.plectix.rulestudio.editors.kappa.KappaEditor"
+            id="com.plectix.rulestudio.editors.kappa.KappaEditor">
+      </editor>
+   </extension>
+   
+   	<extension id="KappaBuilder" name="Kappa Validation Builder" 
+   		point="org.eclipse.core.resources.builders"> 
+     	<builder hasNature="false" isConfigurable="true"> 
+         	<run class="com.plectix.rulestudio.editors.builders.KappaBuilder"/>
+     	</builder> 
+  	</extension> 
+   
+   	<extension id="kappaproblem" name="Kappa Validation Error" point="org.eclipse.core.resources.markers">
+      <super type="org.eclipse.core.resources.problemmarker"/> 
+      <super type="org.eclipse.core.resources.textmarker"/> 
+      <attribute name="owner"/> 
+	  <persistent value="true"/>
+	</extension>
+	
+	<extension point="org.eclipse.ui.ide.markerResolution">
+  		<markerResolutionGenerator
+   			class="com.plectix.rulestudio.editors.builders.KappaProblemFixer"
+			markerType="com.plectix.rulestudio.editors.kappaproblem">
+		</markerResolutionGenerator>
+ 	</extension>
+ 	
+ 	
+ 	<extension point="org.eclipse.ui.editorActions"> 
+		<editorContribution 
+	    	  	id="com.plectix.rulestudio.actions.editors"
+	   			targetID="com.plectix.rulestudio.editors.kappa.KappaEditor"> 
+			<menu id="kappeditor" label="Cellucidate Tools">            
+				<separator name="additions"/>          
+			</menu>
+	   		<action
+	        	id="com.plectix.rulestudio.editors.actions.ExportToCellucidate" 
+	        	label="Upload to Cellucidate"
+	        	icon="images/exporttocellucidate.png"
+	      		menubarPath="kappeditor/additions" 
+	      		toolbarPath="KappaEditor"
+	      		class="com.plectix.rulestudio.editors.actions.ExportToCellucidate"> 
+	      </action> 
+	   </editorContribution> 
+	</extension>
+	
+	
+	<extension id="com.plectix.rulestudio.editors.markers"
+	     name="Kappa Text Marker"
+	     point="org.eclipse.core.resources.markers">
+		<super type="org.eclipse.core.resources.textmarker">
+		</super>
+	</extension>
+
+	<extension point="org.eclipse.ui.editors.annotationTypes">
+     	<type markerType="com.plectix.rulestudio.editors.markers"
+           name="com.plectix.rulestudio.editors.annotations">
+		</type>
+	</extension>
+	
+	<extension point="org.eclipse.ui.editors.markerAnnotationSpecification">
+		<specification
+           annotationType="com.plectix.rulestudio.editors.annotations"
+           colorPreferenceKey="writeOccurrenceIndicationColor"
+           colorPreferenceValue="240,216,168"
+           contributesToHeader="true"
+           highlightPreferenceKey="writeOccurrenceHighlighting"
+           highlightPreferenceValue="true"
+           includeOnPreferencePage="true"
+           isGoToNextNavigationTarget="true"
+           isGoToPreviousNavigationTarget="true"
+           label="Clone"
+           overviewRulerPreferenceKey="writeOccurrenceIndicationInOverviewRuler"
+           overviewRulerPreferenceValue="true"
+           showInNextPrevDropdownToolbarAction="true"
+           textPreferenceKey="writeOccurrenceTextStyle"
+           textPreferenceValue="true"
+           textStylePreferenceValue="NONE"
+           verticalRulerPreferenceKey="writeOccurrenceIndicationInVerticalRuler"
+           verticalRulerPreferenceValue="true">
+     	</specification>
+  	</extension>
+  
+	<extension point="org.eclipse.ui.exportWizards">
+		<category id="com.plectix.rulestudio" name="Plectix"/>
+		<wizard id="com.plectix.rulestudio.editors.wizards.ExportWizard" name="Upload to Cellucidate"
+			class="com.plectix.rulestudio.editors.wizards.ExportWizard" 
+			category="com.plectix.rulestudio" icon="images/export.png">
+			
+				<description>
+				 Upload the selected model to Cellucidate.
+				</description>
+		       <selection class="org.eclipse.core.resources.IFile"/> 
+		</wizard>
+	</extension>
+	
+	<extension point="org.eclipse.ui.preferencePages">
+	  <page id="com.plectix.rulestudio.editors.preferencepages.SyntaxColoring" 
+         name="Syntax Coloring" class="com.plectix.rulestudio.editors.preferencepages.SyntaxColoring"
+         category="com.plectix.rulestudio.core.preferencepages.Cellucidate"> 
+      </page> 
+   	</extension>	
+ 	 
+</plugin>

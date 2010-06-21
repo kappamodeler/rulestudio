@@ -1,0 +1,11 @@
+
+# Eclipse files
+
+
+
+# Java files
+*.class
+
+
+# OS X
+.DS_Store

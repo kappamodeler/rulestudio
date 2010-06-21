@@ -1,0 +1,137 @@
+#
+# Welcome to the Kappa Workbench Editor 
+# 
+# This editor will improve the speed of entering valid kappa by using auto completion and basic syntax checking as you write each line.
+# Auto completion of agents, rules and Kappa will drop down when you are creating initial conditions, observables or rules that reuse agents in prior rules.
+# 
+# Please send comments and feedback on our editor to eclipse@cellucidate.com
+#
+
+# Check ideas
+a()->b(s)
+a(s)<-b(s)
+
+
+
+#INVALID Rules
+a(s)->a(s!_)
+a(s)->a(s?)
+a(),b(s?)->a(),b(s)
+a(s!_) <-> a(s)
+B(y~a~e)->B(y~a~e)
+agent(x),B(y~a?) -> agent(x!1),B(y~a!1)
+Aww(x) -> Aww(x?)
+A(x!_) <-> A(x)
+A(x) -> A(x!_)
+A(x!_),B(y) <-> A(x!1),B(y!1)
+A(x),B(y),C(v),D(x) -> A(x!1),B(y!1),C(v!1),D(x!1)
+A(x),B(y),C(v),D(x) -> A(x!1),B(y!1),C(v!1),D(x)
+A(x~u) -> A(x)
+A(x) -> A(x~u)
+A(x~u),B(x) -> A(x!1),B(x!1)
+A(x!_) -> A(x~a)
+A(x~u!_) -> A(x!_)
+A(x?) -> A(x~u?)
+A(x~a) -> A(~u)
+A(~a) -> A(x~u)
+A(x,y~a) -> A(x,~u)
+A(x~a),B(x) <-> A(~u!1),B(x)
+a(s1!1),b(s1)->
+->a(s1!1),b(s1)
+a(s1!1),b(s1!1),c(s1!1)->
+->a(s1!1),b(s1!1),c(s1!1)
+a(s1!1,s2!1)->
+->a(s1!1,s2!1)
+a(s1,s2,s3)->a(s1,s2)
+a(s)->a(s!_)
+a(s)->a(s?)
+a(),b(s?)->a(),b(s)
+
+'E_Sy_op' E(s!0), S(s~y) -> E(s!0), S(s~y)
+'E_Sn' E(s), S(s~n) <- E(s!0), S(s~n!0)
+'E_Sn' E(s!0), S(s~n!0) ->  E(s), S(s~n)
+'E_Sn' E(s), S(s~n) <-> E(s!0), S(s!0)
+
+#VALID rules
+a(s!_)->a(s)
+B(y~a?) -> B(y~b?)
+Aww(x?) ->
+Aww(x?) -> B(y) 
+A(x!_) -> A(x)
+A(x!_),B(y) -> A(x!1),B(y!1)
+A(x),B(y),C(v),D(x) -> A(x!1),B(y!1),C(v!2),D(x!2)
+A(x~u) -> A(x~p)
+A(x~u),B(x) -> A(x~a!1),B(x!1)
+A(x~u!_) -> A(x~a)
+A(x~u!_) -> A(x~a!_)
+A(x~u?) -> A(x~a?)
+A(x~a) -> A(x~u)
+A(x~a) -> A(x~u)
+A(x,y~a) -> A(x,y~u)
+A(x~a),B(x) <-> A(x~u!1),B(x!1)
+a(s1!1,s2~u),b(s1!1)->a(s1,s2~p),b(s1)
+a(s1,s2,s3)->a(s3,s2,s1)
+A(x~a) -> A(x~u) @ 6.345E-1
+A(x~a) -> A(x~u) @ 6.345E+1
+A(x~a) -> A(x~u) @ 6.345E1
+A(x~a) -> A(x~u) @ 6.345e-1
+A(x~a) -> A(x~u) @ 6E-1
+
+
+#INVALID agents
+%init: 1 * a(s1,s1)
+%init: 1 * abcdefghijklmnopqrstu()
+%init: 1 * a(abcdefghijklmnopqrstu)
+%init: 1 * a(s~abcdefghijklmnopqrstu)
+%init: 1 * (s)
+%init: 1 * a(,s)
+%init: 1 * &()
+%init: 1 * a#()
+%init: 1 * a$()
+%init: 1 * ^a()
+%init: 1 * -a()
+%init: 1 * _a()
+%init: 1 * a(s%)
+%init: 1 * a(s*)
+%init: 1 * a(s@)
+%init: 1 * a(^1)
+%init: 1 * a(-b)
+%init: 1 * a(_c)
+%init: 1 * a(s~^)
+%init: 1 * a(s~-)
+%init: 1 * a(s~_)
+%init: 1 * a(s1!1),b(s1)
+%init: 1 * a(s1!1),b(s1!1),c(s1!1)
+%init: 1 * a(s1!1,s2!1)
+%init: 1 * a(s!_) #ICs can't contain any-bonds 
+%init: 1 * a(s?) #ICs can't contain wild-card bonds 
+%init: 1 * B(y~a~e) #sites in ICs can't have multiple states 
+%init: 1 * A(x!1),B(y!1),C(v!1),D(x!1) #bond in ICs have to appear twice only 
+%init: 1 * A(x!1),B(y!1),C(v!1),D(x) #bond in ICs have to appear twice only 
+%init: 1 * A(x~u!_) #ICs can't contain any-bonds 
+%init: 1 * A(x~u?) #ICs can't contain wild-card bonds 
+%init: 1 * A(~u) #can't have state with no corresponding site 
+%init: 1 * A(~u!1),B(x!1) #can't have state with no corresponding site 
+%init: 1 * a(s1!1),b(s1) #bond in ICs have to appear twice only 
+%init: 1 * a(s1!1,s2!1) #bond in ICs can't link two sites in same agent 
+
+#VALID
+%init: 1 * a(s1,s2~u)
+%init: 1 * azAZ09-_^()
+%init: 1 * a(azAZ09-_^)
+%init: 1 * a(s~azAZ09)
+%init: 1 * a(s1!1,s2~u),b(s1!1)
+
+
+
+#INVALID FILE
+#'invalid rule - Del Del Add Add Bnd' A(x),B(x) -> B(x!1),A(x!1)
+#%init: 100 * A(x,y),B(x,y)
+#
+#INVALID FILE
+#'invalid rule - uses site not mentioned in ICs' A(xx!_) -> A(xx)
+#%init: 100 * A(x,y),B(x,y)
+#
+#VALID FILE
+#'valid (but stupid) rule' A(x,y),B(x,y) -> B(x!1,y),A(x!1,y)
+#%init: 100 * A(x,y),B(x,y)

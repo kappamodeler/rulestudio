@@ -1,0 +1,24 @@
+com.plectix.license.client.License:
+    public abstract java.lang.String getLicenseDataPlain()
+    76:77:public final void setLicenseDataEncrypted(java.lang.String)
+com.plectix.license.client.License_V1:
+    private static final int FIELD_DELIMITER_LENGTH
+    23:36:public java.lang.String getLicenseDataPlain()
+    63:85:private static final java.lang.String createFieldDelimiter(java.lang.Object[])
+    179:180:public final void setExpirationDate(long)
+    183:184:public final void setUsername(java.lang.String)
+    187:188:public final void setApiKey(java.lang.String)
+    191:192:public final void setJsimKey(java.lang.String)
+    195:196:public final void setPluginsVersion(java.lang.String)
+    209:209:public final java.lang.String getPluginsVersion()
+com.plectix.license.client.SecurityUtil:
+    public static final java.lang.String LICENSE_FIELD_SEPARATOR
+    private static final java.lang.String PUBLIC_KEY_HEX
+    private static final int RSA_SIGNATURE_SIZE
+    public static final int RSA_SIGNATURE_HEX_SIZE
+    private static final int KEY_BYTE_LENGTH
+    public static final java.lang.String SECURITY_ALGORITHM
+    public static final java.lang.String SIGNATURE_ALGORITHM
+    public static final java.lang.String SECRET_KEY_SPEC_ALGORITHM
+    public static final java.lang.String CIPHER_ALGORITHM
+    public static final java.lang.String DEFAULT_CHARSET

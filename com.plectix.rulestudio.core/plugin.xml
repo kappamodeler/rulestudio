@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+    <extension point="org.eclipse.ui.newWizards">
+        <category name="Plectix" id="com.plectix.wizards"/>
+        <wizard name="Model Folder"
+            icon="images/folder.gif" 
+            category="com.plectix.wizards"
+            class="com.plectix.rulestudio.core.wizards.project.BookWizard"
+            project="true" 
+            id="com.plectix.rulestudio.core.wizards.project.BookWizard">
+            <description>This project allows the users to develop new
+            models.</description>
+        </wizard>
+        <wizard name="Kappa File"
+            icon="images/kappafile.png" 
+            category="com.plectix.wizards"
+            class="com.plectix.rulestudio.core.wizards.resource.KappaFile"
+            project="false" 
+            id="com.plectix.rulestudio.core.wizards.resource.KappaFile">
+            <description>Create a new Kappa File.</description>
+        </wizard>
+    </extension>
+     		
+    <extension point="org.eclipse.ui.preferencePages">
+	  <page id="com.plectix.rulestudio.core.preferencepages.Cellucidate" 
+         name="Cellucidate" class="com.plectix.rulestudio.core.preferencepages.Cellucidate"> 
+      </page> 
+   </extension>
+   
+   	<extension id="BookProject" name="kappa Project" point="org.eclipse.core.resources.natures"> 
+		<runtime>
+			<run class="com.plectix.rulestudio.core.project.BookProject"/> 
+		</runtime> 
+ 	</extension>
+    
+   <extension point="org.eclipse.ui.perspectives">
+      <perspective
+            class="com.plectix.rulestudio.core.perspectives.WorkbenchPerspective"
+            icon="images/perspective.png"
+            id="com.plectix.rulestudio.core.perspectives.WorkbenchPerspective"
+            name="Simple"/>
+   </extension>
+   
+   <extension point="org.eclipse.ui.perspectives">
+      <perspective
+            class="com.plectix.rulestudio.core.perspectives.NewWorkbenchPerspective"
+            icon="images/perspective.png"
+            id="com.plectix.rulestudio.core.perspectives.NewWorkbenchPerspective"
+            name="Rule or Anayze"/>
+   </extension>
+   
+   <extension point="org.eclipse.ui.perspectives">
+      <perspective
+            class="com.plectix.rulestudio.core.perspectives.K3WorkbenchPerspective"
+            icon="images/perspective.png"
+            id="com.plectix.rulestudio.core.perspectives.K3WorkbenchPerspective"
+            name="Rule and Analyze"/>
+   </extension>
+   
+   <extension
+         point="org.eclipse.ui.perspectiveExtensions">
+      <perspectiveExtension
+            targetID="*">
+         <viewShortcut id="com.plectix.rulestudio.views.rulevisualizer.RuleVisualizerView"/>
+         <viewShortcut id="com.plectix.rulestudio.views.contactmap.ContactMapView"/>
+         <viewShortcut id="com.plectix.rulestudio.views.influencemap.InfluenceMapView"/>
+         <viewShortcut id="com.plectix.rulestudio.views.compression.CompressionView"/>
+         <viewShortcut id="com.plectix.rulestudio.views.reachable.ReachableView"/>
+         <viewShortcut id="com.plectix.rulestudio.views.compile.CompileView"/>
+         <viewShortcut id="org.eclipse.ui.views.ProblemView"/>
+         <viewShortcut id="org.eclipse.ui.views.ContentOutline"/>
+         <newWizardShortcut id="com.plectix.rulestudio.core.wizards.project.BookWizard"/>
+         <newWizardShortcut id="com.plectix.rulestudio.core.wizards.resource.KappaFile"/>
+         <perspectiveShortcut id="com.plectix.rulestudio.core.perspectives.K3WorkbenchPerspective"/> 
+         <perspectiveShortcut id="com.plectix.rulestudio.core.perspectives.NewWorkbenchPerspective"/> 
+         <perspectiveShortcut id="com.plectix.rulestudio.core.perspectives.WorkbenchPerspective"/> 
+       </perspectiveExtension>
+   </extension>
+
+   <extension
+         point="org.eclipse.ui.perspectiveExtensions">
+      <perspectiveExtension
+            targetID="com.plectix.rulestudio.branding.perspectives.Welcome">
+         <perspectiveShortcut id="com.plectix.rulestudio.core.perspectives.K3WorkbenchPerspective"/>
+       </perspectiveExtension>
+   </extension>
+  
+    
+
+</plugin>

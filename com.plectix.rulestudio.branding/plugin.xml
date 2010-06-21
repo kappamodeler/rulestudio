@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+  
+   <extension id="kappaWorkbench" point="org.eclipse.core.runtime.products"> 
+      	<product name="%productName" application="org.eclipse.ui.ide.workbench" description="%productDescription">
+      		<property name="windowImages" value="resources/images/kappa16.png,resources/images/kappa32.png,resources/images/kappa48.png"/> 
+			<property name="aboutImage" value="resources/images/kappa_about_image_lg.png"/> 
+			<property name="aboutText" value="%productDescription"/> 
+			<property name="appName" value="%productName"/> 
+			<property name="preferenceCustomization" value="plugin_customization.ini"/> 
+			<property name="startupForegroundColor" value="28538e"/>
+          	<property name="startupMessageRect" value="25,260,441,20"/>
+          	<property name="startupProgressRect" value="25,290,455,15"/> 
+      	</product> 
+   </extension> 
+
+   <extension point="org.eclipse.ui.perspectives">
+      <perspective
+            class="com.plectix.rulestudio.branding.perspectives.Welcome"
+            icon="resources/images/welcomeperspective.png"
+            id="com.plectix.rulestudio.branding.perspectives.Welcome"
+            name="Welcome"/>
+   </extension>
+   
+   <extension point="org.eclipse.ui.perspectiveExtensions">
+      <perspectiveExtension
+            targetID="com.plectix.rulestudio.core.perspectives.WorkbenchPerspective">
+         <perspectiveShortcut id="com.plectix.rulestudio.branding.perspectives.Welcome"/>
+       </perspectiveExtension>
+   </extension>
+
+   <extension point="org.eclipse.ui.intro">
+      	<intro class="org.eclipse.ui.intro.config.CustomizableIntroPart"
+            id="com.plectix.rulestudio.branding.intro" icon="resources/images/kappa16.png"/>
+      	<introProductBinding
+            introId="com.plectix.rulestudio.branding.intro"
+            productId="com.plectix.rulestudio.branding.kappaWorkbench"/>
+   </extension>
+
+   <extension id="intro" point="org.eclipse.ui.intro.config">
+      <config introId="com.plectix.rulestudio.branding.intro"
+            id="org.eclipse.platform.introConfig"
+            content="$nl$/resources/welcome/introContent.xml">
+         <presentation home-page-id="root" standby-page-id="standby">
+            <implementation style="$nl$/resources/welcome/main.css"
+                  kind="html" os="win32,linux,macosx">
+            </implementation>
+            <implementation kind="swt">
+            </implementation>
+         </presentation>
+      </config>
+   </extension>
+	
+</plugin>

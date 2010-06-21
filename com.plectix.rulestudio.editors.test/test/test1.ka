@@ -1,0 +1,11 @@
+# this is a test file
+
+a(s1,s2)-> a(s1!1,s2!1) 
+
+a(s1,s2,s3)->a(s1,s2) 
+
+%init
+
+   %init \
+more
+

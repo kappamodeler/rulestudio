@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.views">
+      <category
+            id="com.plectix.rulestudio.views.rulevisualizer"
+            name="RuleStudio">
+      </category>
+      <view
+            category="com.plectix.rulestudio.views.rulevisualizer"
+            class="com.plectix.rulestudio.views.rulevisualizer.RuleVisualizerView"
+            icon="images/rulevisualizer.png"
+            id="com.plectix.rulestudio.views.rulevisualizer.RuleVisualizerView"
+            name="Rule Visualizer">
+      </view>
+      <view
+            category="com.plectix.rulestudio.views.rulevisualizer"
+            class="com.plectix.rulestudio.views.contactmap.ContactMapView"
+            icon="images/contactmap.png"
+            id="com.plectix.rulestudio.views.contactmap.ContactMapView"
+            name="Contact Map">
+      </view>
+      <view
+            category="com.plectix.rulestudio.views.rulevisualizer"
+            class="com.plectix.rulestudio.views.influencemap.InfluenceMapView"
+            icon="images/influencemap.png"
+            id="com.plectix.rulestudio.views.influencemap.InfluenceMapView"
+            name="Influence Map">
+      </view>
+      <view
+            category="com.plectix.rulestudio.views.rulevisualizer"
+            class="com.plectix.rulestudio.views.compression.CompressionView"
+            icon="images/compression.png"
+            id="com.plectix.rulestudio.views.compression.CompressionView"
+            name="Validation">
+      </view>
+      <view
+            category="com.plectix.rulestudio.views.rulevisualizer"
+            class="com.plectix.rulestudio.views.reachable.ReachableView"
+            icon="images/rulevisualizer.png"
+            id="com.plectix.rulestudio.views.reachable.ReachableView"
+            name="Reachables">
+      </view>
+      <view
+            category="com.plectix.rulestudio.views.rulevisualizer"
+            class="com.plectix.rulestudio.views.compile.CompileView"
+            icon="images/rulevisualizer.png"
+            id="com.plectix.rulestudio.views.compile.CompileView"
+            name="Compiled">
+      </view>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectiveExtensions">
+      <perspectiveExtension
+            targetID="com.plectix.rulestudio.core.perspectives.WorkbenchPerspective">
+         <viewShortcut id="com.plectix.rulestudio.views.rulevisualizer.RuleVisualizerView"/>
+         <viewShortcut id="com.plectix.rulestudio.views.contactmap.ContactMapView"/>
+         <viewShortcut id="com.plectix.rulestudio.views.influencemap.InfluenceMapView"/>
+         <viewShortcut id="com.plectix.rulestudio.views.compression.CompressionView"/>
+         <viewShortcut id="com.plectix.rulestudio.views.reachable.ReachableView"/>
+         <viewShortcut id="com.plectix.rulestudio.views.compile.CompileView"/>
+       </perspectiveExtension>
+   </extension>
+   
+    <extension point="org.eclipse.ui.editorActions"> 
+		<editorContribution 
+	    	  	id="com.plectix.rulestudio.editors.actions"
+	   			targetID="com.plectix.rulestudio.editors.kappa.KappaEditor"> 
+ 
+			<menu id="kappeditor" label="Plectix">            
+				<separator name="additions"/>          
+			</menu>
+ 
+	   		<action
+            	class="com.plectix.rulestudio.views.actions.RunSim"
+            	icon="images/simulation.png"
+            	id="com.plectix.rulestudio.views.actions.RunSim"
+            	label="Run Simulation"
+            	menubarPath="kappeditor/additions"
+            	toolbarPath="KappaEditor"> 
+	      </action> 
+	   		<action
+            	class="com.plectix.rulestudio.views.actions.RunStory"
+            	icon="images/story.png"
+            	id="com.plectix.rulestudio.views.actions.RunStory"
+            	label="Run Story"
+            	menubarPath="kappeditor/additions"
+            	toolbarPath="KappaEditor"> 
+	      </action> 
+	   </editorContribution> 
+	</extension>
+     
+	<extension point="org.eclipse.equinox.http.registry.resources">
+    	<resource alias="/kappa-view" base-name="/resources"/>
+	</extension>
+	
+	<extension point="org.eclipse.ui.viewActions"> 
+		<viewContribution 
+		      	id="com.plectix.rulestudio.views.actions.actions" 
+		   		targetID="com.plectix.rulestudio.views.contactmap.ContactMapView">
+		   <action
+		        id="com.plectix.rulestudio.views.actions.RefreshContactMap" 
+		        label="Show Contact Map" 
+		        icon="images/contactmap.png"
+		        tooltip="Show Contact Map"
+				menubarPath="object"
+				toolbarPath="object"
+		        class="com.plectix.rulestudio.views.actions.RefreshContactMap">
+		   </action> 
+		</viewContribution>
+	</extension>
+	<extension point="org.eclipse.ui.viewActions"> 
+		<viewContribution 
+		      	id="com.plectix.rulestudio.views.actions.actions" 
+		   		targetID="com.plectix.rulestudio.views.influencemap.InfluenceMapView">
+		   <action
+		        id="com.plectix.rulestudio.views.actions.RefreshInfluenceMap" 
+		        label="Show Influence Map" 
+		        icon="images/influencemap.png"
+		        tooltip="Show Influence Map"
+				menubarPath="object"
+				toolbarPath="object"
+		        class="com.plectix.rulestudio.views.actions.RefreshInfluenceMap">
+		   </action> 
+		</viewContribution>
+	</extension>
+ <extension
+       id="com.plectix.rulestudio.view.influencemap"
+       name="influencemap"
+       point="com.plectix.rulestudio.editor.changerule">
+       <view
+             name="Influence Map"
+             viewid="com.plectix.rulestudio.views.influencemap.InfluenceMapView">
+       </view>
+       <view
+             name="Rule Visualizer"
+             viewid="com.plectix.rulestudio.views.rulevisualizer.RuleVisualizerView">
+       </view>
+ </extension>
+ <extension
+       id="com.plectix.rulestudio.view.contactmap"
+       name="contactmap"
+       point="com.plectix.rulestudio.editor.changeagent">
+       <view
+             name="Contact Map"
+             viewid="com.plectix.rulestudio.views.contactmap.ContactMapView">
+       </view>
+ </extension>
+	<extension id="com.plectix.rulestudio.views.compression.markers"
+	     name="Compression Marker"
+	     point="org.eclipse.core.resources.markers">
+		<super type="org.eclipse.core.resources.problemmarker">
+		</super>
+	</extension>
+   <extension point="org.eclipse.ui.editors">
+      <editor name="Simulation"
+            extensions="sim" icon="images/simulation.png"
+            class="com.plectix.rulestudio.views.simulator.editor.SimEditor"
+            id="com.plectix.rulestudio.views.simulatorEditor">
+      </editor>
+      <editor name="Story"
+            extensions="story" icon="images/story.png"
+            class="com.plectix.rulestudio.views.story.StoryEditor"
+            id="com.plectix.rulestudio.views.storyEditor">
+      </editor>
+   </extension>
+
+   
+</plugin>

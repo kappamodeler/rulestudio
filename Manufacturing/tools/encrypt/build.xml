@@ -1,0 +1,42 @@
+<project name="Encrypt Jar File" default="encrypt" basedir=".">
+    <description>
+        Encrypt the jar file for jsim
+    </description>
+  <!-- set global properties for this build -->
+  <property name="src" location="src"/>
+  <property name="build" location="build"/>
+
+
+  <target name="init">
+    <!-- Create the time stamp -->
+    <tstamp/>
+    <!-- Create a new build directory to verify -->
+    <delete dir="${build}"/>
+    <mkdir dir="${build}"/>
+  </target>
+
+  <target name="compile" depends="init"
+        description="compile the source " >
+    <!-- Compile the java code from ${src} into ${build} -->
+    <javac srcdir="${src}" classpath="encrypt.build" destdir="${build}"/>
+  </target>
+
+  <target name="clean"
+        description="clean up" >
+    <!-- Delete the ${build} directory trees -->
+
+  </target>
+	
+  <!-- ================================= 
+          target: validate              
+         ================================= -->
+  <target name="encrypt" depends="compile" description="encrypt jar">
+  	<java classname="encrypt.build.EncryptJarFile" classpath="${build}"
+  		failonerror="true">
+  		<arg value="jsim-obf.jar"/>
+  		<arg value="jsim-public.zip"/>
+  	</java>
+
+  </target>
+
+</project>

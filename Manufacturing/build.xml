@@ -1,0 +1,216 @@
+<project name="plectix-rulestudio-workbench-manufacturing" default="all">
+
+	<property file="build.properties"/>
+	
+	<!-- We need to use Ant-contrib -->
+	<taskdef resource="net/sf/antcontrib/antcontrib.properties"/>
+
+	<description>
+		This ant file defines the build process of Plectix's RuleStudio Workbench
+	</description>
+	
+    <propertyregex property="java-major-version"
+	              input="${java.version}"
+	              regexp="(.*)(\.)(.*)"
+ 			      replace="\1"
+	              casesensitive="false" />
+	
+	<echo>
+		NOTICE: The build needs to be run in Java 1.5 so the plugins are correctly built. 
+		Your VM.VERSION is = ${java.version}. Major version equals ${java-major-version}
+	</echo>
+	
+	<if>
+		<equals arg1="${java-major-version}" arg2="1.5" />
+	 	<else>
+			<fail message="YOU NEED TO USE JAVA 1.5 TO BUILD THE PLECTIX ECLIPSE PLUGINS"/>
+		</else>
+	</if>
+
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+	<!-- Property Definitions.                                             -->
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+	
+	<!-- These are the plugins that neeed to be fetch from the local directory -->
+	<!-- or svn  -->
+	<!-- NOTE: This list will need to be updated when adding new plugins or features -->
+	<property name="plugins-to-build" value="com.plectix.rulestudio.branding,com.plectix.rulestudio.core,com.plectix.rulestudio.editors,com.plectix.rulestudio.updatesite,com.plectix.rulestudio.views"/>
+	<property name="features-to-build" value="com.plectix.rulestudio.branding.feature,com.plectix.rulestudio.feature,"/>
+	
+	<taskdef classname="org.tigris.subversion.svnant.SvnTask" name="svn" />
+	<property name="svn-root" value="https://svn.plectix.com/plectix/eclipse_plugins" />	
+
+	<!-- build directories -->
+	<property name="build-area" value="build" />
+	<property name="bundles-build-area" value="${build-area}/base" />
+	<property name="dist-area" value="dist" />
+	<property name="dependencies-area" value="dependencies" />
+	<property name="projects-to-get" value="${projects-to-build}" />
+
+	<property name="product-name" value="com.plectix.rulestudio.workbench" />
+	<property name="version" value="1.0.0" />
+	<property name="distro-name" value="${product-name}-${version}" />
+	
+	<!-- PDE Builder's required properties follow -->
+	<property name="eclipse-pde-workspace" value="${eclipseLocation}/BuildWorkspace"/>
+	<tstamp/>
+	
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+	<!-- Inline Commands.                                                  -->
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+	<target name="start-fresh">
+		<delete dir="${build-area}" />
+		<mkdir dir="${build-area}" />
+	</target>
+
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+	<!-- Targets.                                                          -->
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+	<target name="all" depends="start-fresh,clean,fetch,build-bundles,package-distibutions" />
+
+	<!-- Delete everthing that may have been brought down for a previous -->
+	<!-- manufacture.                                                    -->
+	<target name="clean">
+		<if>
+			<equals arg1="${nocheckout}" arg2="true" />
+			<then>
+				<echo message="Clean target is leaving the pre-existing projects due to nocheckout flag." />
+			</then>
+			<else>
+				<delete includeEmptyDirs="true" defaultexcludes="no" dir="${build-area}" />
+				<mkdir dir="${build-area}" />
+			</else>
+		</if>
+	</target>
+		
+	<!-- 	BUILD DISTRIBUTION		-->
+	<target name="build-bundles" depends="build-bundles-init,pde-build"/>
+	
+	<!--
+        PDE Build expects that the build directory contains a "plugins" 
+        directory and a "features" directory. These directories should contain
+        the various plug-ins and features to be built.
+        
+        It's possible to use the CVS checkout process that is built into 
+        PDE Build. This is done with map files and is beyond the scope of 
+        this tutorial. 
+        
+        This tutorial simply copies the projects directly from your workspace
+        into the appropriate build directory folders.
+	-->
+	<target name="build-bundles-init">
+		
+        <mkdir dir="${build-area}/output" />
+        <mkdir dir="${build-area}/archive" />
+
+		<mkdir dir="${bundles-build-area}" />
+        <mkdir dir="${bundles-build-area}/plugins" />
+        <mkdir dir="${bundles-build-area}/features" />
+				
+	</target>
+	
+    <!--
+        This target actually executes the PDE Build process by launching the 
+        Eclipse antRunner application.
+    -->	
+    <target name="pde-build">
+    	
+    	<!-- Clear the Workspace directory.  This is where the .metadata/.log file is located -->
+		<delete dir="${eclipse-pde-workspace}" />
+
+    	<echo message="Executing ${eclipseLocation}/plugins/org.eclipse.equinox.launcher_${equinoxLauncherPluginVersion}.jar"/>
+        <java classname="org.eclipse.core.launcher.Main" fork="true" failonerror="true">
+            <arg value="-application" />
+            <arg value="org.eclipse.ant.core.antRunner" />
+            <arg value="-data" />
+            <arg value="${eclipse-pde-workspace}" />
+            <arg value="-buildfile" />
+            <arg value="${eclipseLocation}/plugins/org.eclipse.pde.build_${pdeBuildPluginVersion}/scripts/build.xml" />
+        	<!--<arg value="${pdeBuilder}"/> -->
+            <arg value="-Dtimestamp=${timestamp}" />
+            <classpath>
+                <pathelement location="${eclipseLocation}/plugins/org.eclipse.equinox.launcher_${equinoxLauncherPluginVersion}.jar" />
+            </classpath>
+        </java>
+    </target>
+	
+	
+	<!-- This task determines if we fetch the code locally or from unfuddle. -->
+	<target name="fetch">
+		<if>
+			<equals arg1="${build-from-local}" arg2="true" />
+		 	<then>
+				<antcall target="fetch-from-local"/>
+			</then>
+			<else>
+				<antcall target="fetch-from-svn"/>
+			</else>
+		</if>		
+	</target>
+	
+	<!-- This task is to pull the code needed from unfuddle -->
+	<target name="fetch-from-svn">
+		
+		<for list="${plugins-to-build}" param="plugin-name">
+		  <sequential>
+	       	<svn username="${svn-username}" password="${svn-password}">
+	            <checkout url="${svn-root}/@{plugin-name}" 
+	            		revision="HEAD" destPath="${bundles-build-area}/plugins/@{plugin-name}"/>
+	       	</svn>
+		  </sequential>
+		</for>
+		
+		<for list="${features-to-build}" param="feature-name">
+		  <sequential>
+	       	<svn username="${svn-username}" password="${svn-password}">
+	            <checkout url="${svn-root}/@{feature-name}" 
+	            		revision="HEAD" destPath="${bundles-build-area}/features/@{feature-name}"/>
+	       	</svn>
+		  </sequential>
+		</for>
+		
+       	<svn username="${svn-username}" password="${svn-password}">
+            <checkout url="${svn-root}/com.plectix.rulestudio.updatesite" 
+            		revision="HEAD" destPath="${bundles-build-area}/com.plectix.rulestudio.updatesite"/>
+       	</svn>
+		
+	</target>		
+			
+	<!-- This task is to pull the code needed from the local disk -->
+	<target name="fetch-from-local">
+		
+		<for list="${plugins-to-build}" param="plugin-name">
+		  <sequential>
+	       	<copy todir="${bundles-build-area}/plugins/@{plugin-name}">
+	            <fileset dir="../@{plugin-name}">
+	                <include name="**" />
+	            </fileset>
+	       	</copy>
+		  </sequential>
+		</for>
+		
+		<for list="${features-to-build}" param="feature-name">
+		  <sequential>
+	       	<copy todir="${bundles-build-area}/features/@{feature-name}">
+	            <fileset dir="../@{feature-name}">
+	                <include name="**" />
+	            </fileset>
+	       	</copy>
+		  </sequential>
+		</for>
+
+       	<copy todir="${bundles-build-area}/com.plectix.rulestudio.updatesite">
+            <fileset dir="../com.plectix.rulestudio.updatesite">
+                <include name="**" />
+            </fileset>
+       	</copy>
+
+	</target>
+		
+	<!-- This task will call the package.xml build script to -->
+	<!-- create all the distribution files. -->
+	<target name="package-distibutions">
+		<ant antfile="package.xml" target="all"/>
+	</target>
+	
+</project>

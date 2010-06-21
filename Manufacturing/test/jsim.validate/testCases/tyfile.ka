@@ -1,0 +1,21 @@
+#
+# Welcome to the Kappa Workbench Editor 
+# 
+# This editor will improve the speed of entering valid kappa by using auto completion and basic syntax checking as you write each line.
+# Auto completion of agents, rules and Kappa will drop down when you are creating initial conditions, observables or rules that reuse agents in prior rules.
+# 
+# Please send comments and feedback on our editor to eclipse@cellucidate.com
+#
+
+'3' A() -> A() @ 3
+'4' B() -> B() @ 2
+
+%init: 1 * A()
+%init: 2 * B()
+
+%obs: 'A - 1' A()
+%obs: 'B - 2' B()
+%obs: '3'
+%obs: '4'
+
+

@@ -1,0 +1,41 @@
+# Created Mon Dec 28 17:01:06 EST 2009
+# start	end	level	message
+Line 15, Char 1	463	475	Warning	The any-bond (ie, "!_") can appear on both sides of a rule on the same sites. However, the only circumstance where it can appear only on one side of a rule is when it is on the left hand side of a non-reversible rule (ie, a rule with a forward arrow only).
+Line 16, Char 1	476	487	Warning	Wild-card bonds (ie, "?") must appear on both side of the rule (on the same site). The only exception to this is when the agent is degraded (ie, appears on the left hand side but not the right hand side of the rule) - in this case the sites on the agent on the LHS can have wild-card bonds.
+Line 17, Char 1	488	507	Warning	Wild-card bonds (ie, "?") must appear on both side of the rule (on the same site). The only exception to this is when the agent is degraded (ie, appears on the left hand side but not the right hand side of the rule) - in this case the sites on the agent on the LHS can have wild-card bonds.
+Line 18, Char 1	508	523	Warning	The any-bond (ie, "!_") can appear on both sides of a rule on the same sites. However, the only circumstance where it can appear only on one side of a rule is when it is on the left hand side of a non-reversible rule (ie, a rule with a forward arrow only).
+Line 19, Char 3	526	528	Warning	The State "a~e" is not valid needs to follow the following form ([a-z A-Z 0-9])*.
+Line 19, Char 13	536	538	Warning	The State "a~e" is not valid needs to follow the following form ([a-z A-Z 0-9])*.
+Line 20, Char 1	543	582	Warning	Wild-card bonds (ie, "?") must appear on both side of the rule (on the same site). The only exception to this is when the agent is degraded (ie, appears on the left hand side but not the right hand side of the rule) - in this case the sites on the agent on the LHS can have wild-card bonds.
+Line 21, Char 1	583	600	Warning	Wild-card bonds (ie, "?") must appear on both side of the rule (on the same site). The only exception to this is when the agent is degraded (ie, appears on the left hand side but not the right hand side of the rule) - in this case the sites on the agent on the LHS can have wild-card bonds.
+Line 22, Char 1	601	616	Warning	The any-bond (ie, "!_") can appear on both sides of a rule on the same sites. However, the only circumstance where it can appear only on one side of a rule is when it is on the left hand side of a non-reversible rule (ie, a rule with a forward arrow only).
+Line 23, Char 1	617	631	Warning	The any-bond (ie, "!_") can appear on both sides of a rule on the same sites. However, the only circumstance where it can appear only on one side of a rule is when it is on the left hand side of a non-reversible rule (ie, a rule with a forward arrow only).
+Line 24, Char 1	632	661	Warning	The any-bond (ie, "!_") can appear on both sides of a rule on the same sites. However, the only circumstance where it can appear only on one side of a rule is when it is on the left hand side of a non-reversible rule (ie, a rule with a forward arrow only).
+Line 25, Char 1	662	712	Warning	This rule has "4" instances of the bond "1" on the right hand side.
+Line 26, Char 1	713	761	Warning	This rule has "3" instances of the bond "1" on the right hand side.
+Line 27, Char 1	762	776	Warning	The site "x" has a state on one side of a rule, and not on the other.
+Line 28, Char 1	777	791	Warning	The site "x" has a state on one side of a rule, and not on the other.
+Line 29, Char 1	792	820	Warning	The site "x" has a state on one side of a rule, and not on the other.
+Line 30, Char 1	821	837	Warning	The site "x" has a state on one side of a rule, and not on the other.
+Line 31, Char 1	838	856	Warning	The site "x" has a state on one side of a rule, and not on the other.
+Line 31, Char 1	838	856	Warning	The any-bond (ie, "!_") can appear on both sides of a rule on the same sites. However, the only circumstance where it can appear only on one side of a rule is when it is on the left hand side of a non-reversible rule (ie, a rule with a forward arrow only).
+Line 32, Char 1	857	873	Warning	The site "x" has a state on one side of a rule, and not on the other.
+Line 33, Char 11	884	885	Warning	State (u) must be preceded by site.
+Line 33, Char 1	874	889	Warning	The site "x" has a state on one side of a rule, and not on the other.
+Line 34, Char 1	890	891	Warning	State (a) must be preceded by site.
+Line 34, Char 1	890	905	Warning	The site "x" has a state on one side of a rule, and not on the other.
+Line 35, Char 13	918	919	Warning	State (u) must be preceded by site.
+Line 35, Char 1	906	925	Warning	The site "y" has a state on one side of a rule, and not on the other.
+Line 36, Char 19	944	945	Warning	State (u) must be preceded by site.
+Line 36, Char 1	926	954	Warning	The site "x" has a state on one side of a rule, and not on the other.
+Line 36, Char 1	926	954	Warning	This rule has "1" instances of the bond "1" on the right hand side.
+Line 37, Char 1	955	970	Warning	This rule has "1" instances of the bond "1" on the left hand side.
+Line 38, Char 1	971	986	Warning	This rule has "1" instances of the bond "1" on the right hand side.
+Line 38, Char 1	971	986	Error	The line of kappa isn't valid.
+Line 39, Char 1	987	1012	Warning	This rule has "3" instances of the bond "1" on the left hand side.
+Line 40, Char 1	1013	1038	Warning	This rule has "3" instances of the bond "1" on the right hand side.
+Line 40, Char 1	1013	1038	Error	The line of kappa isn't valid.
+Line 42, Char 1	1054	1068	Error	The line of kappa isn't valid.
+Line 44, Char 1	1091	1103	Warning	The any-bond (ie, "!_") can appear on both sides of a rule on the same sites. However, the only circumstance where it can appear only on one side of a rule is when it is on the left hand side of a non-reversible rule (ie, a rule with a forward arrow only).
+Line 45, Char 1	1104	1115	Warning	Wild-card bonds (ie, "?") must appear on both side of the rule (on the same site). The only exception to this is when the agent is degraded (ie, appears on the left hand side but not the right hand side of the rule) - in this case the sites on the agent on the LHS can have wild-card bonds.
+Line 46, Char 1	1116	1135	Warning	Wild-card bonds (ie, "?") must appear on both side of the rule (on the same site). The only exception to this is when the agent is degraded (ie, appears on the left hand side but not the right hand side of the rule) - in this case the sites on the agent on the LHS can have wild-card bonds.

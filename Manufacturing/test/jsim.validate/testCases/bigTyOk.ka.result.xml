@@ -1,0 +1,407 @@
+<?xml version="1.0" encoding="utf-8"?>
+	<ComplxSession xmlns="http://plectix.synthesisstudios.com/schemas/kappasession" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" CommandLine="--no-build-influence-map --no-compute-qualitative-compression --no-compute-quantitative-compression --no-dump-iteration-number --no-dump-rule-iteration --no-enumerate-complexes --contact-map C:\Users\bill\plectix\ws1\jsim.validate\testCases\bigTyOk.ka --xml-session-name C:\Users\bill\plectix\ws1\jsim.validate\testCases\bigTyOk.ka.xml" InputFile="C:\Users\bill\plectix\ws1\jsim.validate\testCases\bigTyOk.ka" TimeStamp="2009-12-08 10:08:53">
+		<RuleSet Name="Original">
+			<Rule Type="RULE" Name="b. Ste4...Ste5-Refinement (2){17231}" Id="44" Data="Ste4(ste5!0),Ste5(ste5!1),Ste5(ste4!0,ste5!1)-&gt;Ste4(ste5),Ste5(ste5!0),Ste5(ste4,ste5!0)">
+			</Rule>
+			<Rule Type="RULE" Name="d. Gpa1@nuc_GDP-Refinement (3){17165}" Id="43" Data="Gpa1(nuc~GTP,ste2!0),Ste2(gpa1!0,sst2!1),Sst2(ste2!1)-&gt;Gpa1(nuc~GDP,ste2!0),Ste2(gpa1!0,sst2!1),Sst2(ste2!1)">
+			</Rule>
+			<Rule Type="RULE" Name="b. Ste4...Ste5-Refinement (1){17230}" Id="42" Data="Ste4(ste5!0),Ste5(ste4!0,ste5)-&gt;Ste4(ste5),Ste5(ste4,ste5)">
+			</Rule>
+			<Rule Type="RULE" Name="c. -Gpa1{17175}" Id="41" Data="Gpa1()-&gt;">
+			</Rule>
+			<Rule Type="RULE" Name="d. Gpa1@nuc_GDP-Refinement (2){17164}" Id="40" Data="Gpa1(nuc~GTP,ste2!0),Ste2(gpa1!0,sst2)-&gt;Gpa1(nuc~GDP,ste2!0),Ste2(gpa1!0,sst2)">
+			</Rule>
+			<Rule Type="RULE" Name="c. Gpa1@nuc_GTP (1){141810}" Id="39" Data="Gpa1(nuc~GDP,ste2)-&gt;Gpa1(nuc~GTP,ste2)">
+			</Rule>
+			<Rule Type="RULE" Name="b. Gpa1(GTP)...Ste4 (no Ste2){141690}" Id="38" Data="Ste4(gpa1!0),Gpa1(nuc~GTP,ste2,ste4!0)-&gt;Ste4(gpa1),Gpa1(nuc~GTP,ste2,ste4)">
+			</Rule>
+			<Rule Type="RULE" Name="b. Ste4...Ste5{17229}" Id="37" Data="Ste4(ste5!0),Ste5(ste4!0)-&gt;Ste4(ste5),Ste5(ste4)">
+			</Rule>
+			<Rule Type="RULE" Name="d. Gpa1@nuc_GDP-Refinement (1){17163}" Id="36" Data="Gpa1(nuc~GTP,ste2)-&gt;Gpa1(nuc~GDP,ste2)">
+			</Rule>
+			<Rule Type="RULE" Name="c. Gpa1@nuc_GTP (2){141809}" Id="35" Data="Ste2(gpa1!0,pheromone),Gpa1(nuc~GDP,ste2!0)-&gt;Ste2(gpa1!0,pheromone),Gpa1(nuc~GTP,ste2!0)">
+			</Rule>
+			<Rule Type="RULE" Name="b. Gpa1(GDP)...Ste4 (no Ste2){141688}" Id="34" Data="Gpa1(nuc~GDP,ste2,ste4!0),Ste4(gpa1!0)-&gt;Gpa1(nuc~GDP,ste2,ste4),Ste4(gpa1)">
+			</Rule>
+			<Rule Type="RULE" Name="b. Ste5...Ste5-Refinement (3){17239}" Id="33" Data="Ste5(ste4!0,ste5!1),Ste4(ste5!0),Ste5(ste4!2,ste5!1),Ste4(ste5!2)-&gt;Ste5(ste4!0,ste5),Ste4(ste5!0),Ste5(ste4!1,ste5),Ste4(ste5!1)">
+			</Rule>
+			<Rule Type="RULE" Name="b. Ste4.Ste5-Refinement (3){17228}" Id="32" Data="Ste5(ste4,ste5),Ste4(gpa1,ste5)-&gt;Ste5(ste4!0,ste5),Ste4(gpa1,ste5!0)">
+			</Rule>
+			<Rule Type="RULE" Name="b. +Ste2{17173}" Id="31" Data="-&gt;Ste2(gpa1,pheromone,sst2)">
+			</Rule>
+			<Rule Type="RULE" Name="d. Gpa1@nuc_GDP{17162}" Id="30" Data="Gpa1(nuc~GTP)-&gt;Gpa1(nuc~GDP)">
+			</Rule>
+			<Rule Type="RULE" Name="b. Gpa1.Ste4{17151}" Id="29" Data="Gpa1(ste4),Ste4(gpa1,ste20,ste5)-&gt;Gpa1(ste4!0),Ste4(gpa1!0,ste20,ste5)">
+			</Rule>
+			<Rule Type="RULE" Name="b. Ste5...Ste5-Refinement (2){17238}" Id="28" Data="Ste5(ste4,ste5!0),Ste4(ste5!1),Ste5(ste4!1,ste5!0)-&gt;Ste5(ste4,ste5),Ste4(ste5!0),Ste5(ste4!0,ste5)">
+			</Rule>
+			<Rule Type="RULE" Name="b. Ste4.Ste5-Refinement (2){17227}" Id="27" Data="Ste5(ste4,ste5!0),Ste5(ste4,ste5!0),Ste4(gpa1,ste5)-&gt;Ste5(ste4!0,ste5!1),Ste4(gpa1,ste5!0),Ste5(ste4,ste5!1)">
+			</Rule>
+			<Rule Type="RULE" Name="d. +Sst2{17205}" Id="26" Data="-&gt;Sst2(S539~u,mapk,ste2)">
+			</Rule>
+			<Rule Type="RULE" Name="d. Sst2.Ste2{17161}_op" Id="25" Data="Sst2(ste2!0),Ste2(sst2!0)-&gt;Sst2(ste2),Ste2(sst2)">
+			</Rule>
+			<Rule Type="RULE" Name="d. Sst2.Ste2{17161}" Id="24" Data="Sst2(ste2),Ste2(sst2)-&gt;Sst2(ste2!0),Ste2(sst2!0)">
+			</Rule>
+			<Rule Type="RULE" Name="b. Ste5...Ste5-Refinement (1){17237}" Id="23" Data="Ste5(ste4,ste5!0),Ste5(ste4,ste5!0)-&gt;Ste5(ste4,ste5),Ste5(ste4,ste5)">
+			</Rule>
+			<Rule Type="RULE" Name="b. Ste4.Ste5-Refinement (1){17226}" Id="22" Data="Ste5(ste4,ste5!0),Ste5(ste4!1,ste5!0),Ste4(ste5!1),Ste4(gpa1,ste5)-&gt;Ste5(ste4!0,ste5!1),Ste5(ste4!2,ste5!1),Ste4(gpa1,ste5!0),Ste4(ste5!2)">
+			</Rule>
+			<Rule Type="RULE" Name="b. -PheromoneSte2{17171}" Id="21" Data="Pheromone(ste2!0),Ste2(pheromone!0)-&gt;">
+			</Rule>
+			<Rule Type="RULE" Name="b. Ste2...Gpa1Ste4{141553}" Id="20" Data="Ste2(gpa1!0),Gpa1(ste2!0,ste4!1),Ste4(gpa1!1)-&gt;Ste2(gpa1),Gpa1(ste2,ste4!0),Ste4(gpa1!0)">
+			</Rule>
+			<Rule Type="RULE" Name="b. Ste5...Ste5{17236}" Id="19" Data="Ste5(ste5!0),Ste5(ste5!0)-&gt;Ste5(ste5),Ste5(ste5)">
+			</Rule>
+			<Rule Type="RULE" Name="b. Ste4.Ste5{17225}" Id="18" Data="Ste5(ste4),Ste4(gpa1,ste5)-&gt;Ste5(ste4!0),Ste4(gpa1,ste5!0)">
+			</Rule>
+			<Rule Type="RULE" Name="b. -Ste2{17170}" Id="17" Data="Ste2(pheromone)-&gt;">
+			</Rule>
+			<Rule Type="RULE" Name="b. Ste5.Ste5-Refinement (3){17235}" Id="16" Data="Ste5(ste4!0,ste5),Ste4(ste5!0),Ste5(ste4!1,ste5),Ste4(ste5!1)-&gt;Ste5(ste4!0,ste5!1),Ste5(ste4!2,ste5!1),Ste4(ste5!0),Ste4(ste5!2)">
+			</Rule>
+			<Rule Type="RULE" Name="a. Ste4.Ste20{17224}_op" Id="15" Data="Ste4(gpa1,ste20!0),Ste20(ste4!0)-&gt;Ste4(gpa1,ste20),Ste20(ste4)">
+			</Rule>
+			<Rule Type="RULE" Name="a. Ste4.Ste20{17224}" Id="14" Data="Ste4(gpa1,ste20),Ste20(ste4)-&gt;Ste4(gpa1,ste20!0),Ste20(ste4!0)">
+			</Rule>
+			<Rule Type="RULE" Name="d. -Sst2-Refinement (1){17202}" Id="13" Data="Sst2(S539~u)-&gt;">
+			</Rule>
+			<Rule Type="RULE" Name="b. Ste2.Gpa1{17147}" Id="12" Data="Ste2(gpa1),Gpa1(ste2)-&gt;Ste2(gpa1!0),Gpa1(ste2!0)">
+			</Rule>
+			<Rule Type="RULE" Name="b. Ste5.Ste5-Refinement (2){17234}" Id="11" Data="Ste5(ste4!0,ste5),Ste4(ste5!0),Ste5(ste4,ste5)-&gt;Ste5(ste4!0,ste5!1),Ste5(ste4,ste5!1),Ste4(ste5!0)">
+			</Rule>
+			<Rule Type="RULE" Name="d. -Sst2{17201}" Id="10" Data="Sst2()-&gt;">
+			</Rule>
+			<Rule Type="RULE" Name="c. PheromoneSte2Gpa1@nuc_GTP{141803}" Id="9" Data="Gpa1(nuc~GDP,ste2!0),Ste2(gpa1!0,pheromone!1),Pheromone(ste2!1)-&gt;Gpa1(nuc~GTP,ste2!0),Ste2(gpa1!0,pheromone!1),Pheromone(ste2!1)">
+			</Rule>
+			<Rule Type="RULE" Name="b. Ste2...Gpa1 (no Ste4){141550}" Id="8" Data="Ste2(gpa1!0),Gpa1(ste2!0,ste4)-&gt;Ste2(gpa1),Gpa1(ste2,ste4)">
+			</Rule>
+			<Rule Type="RULE" Name="a. Pheromone...Ste2{17146}" Id="7" Data="Ste2(pheromone!0),Pheromone(ste2!0)-&gt;Ste2(pheromone)">
+			</Rule>
+			<Rule Type="RULE" Name="b. Ste5.Ste5-Refinement (1){17233}" Id="6" Data="Ste5(ste4,ste5),Ste5(ste4,ste5)-&gt;Ste5(ste4,ste5!0),Ste5(ste4,ste5!0)">
+			</Rule>
+			<Rule Type="RULE" Name="b. Ste2Gpa1(GTP)...Ste4{141692}" Id="5" Data="Ste4(gpa1!0),Gpa1(nuc~GTP,ste2!_,ste4!0)-&gt;Ste4(gpa1),Gpa1(nuc~GTP,ste2!_,ste4)">
+			</Rule>
+			<Rule Type="RULE" Name="a. Pheromone.Ste2{17145}" Id="4" Data="Ste2(pheromone),Pheromone(ste2)-&gt;Ste2(pheromone!0),Pheromone(ste2!0),Pheromone(ste2)">
+			</Rule>
+			<Rule Type="RULE" Name="b. Ste5.Ste5{17232}" Id="3" Data="Ste5(ste5),Ste5(ste5)-&gt;Ste5(ste5!0),Ste5(ste5!0)">
+			</Rule>
+			<Rule Type="RULE" Name="c. +Gpa1{17177}" Id="2" Data="-&gt;Gpa1(nuc~GDP,ste2,ste4)">
+			</Rule>
+			<Rule Type="RULE" Name="b. Ste2Gpa1(GDP)...Ste4{141691}" Id="1" Data="Ste4(gpa1!0),Gpa1(nuc~GDP,ste2!_,ste4!0)-&gt;Ste4(gpa1),Gpa1(nuc~GDP,ste2!_,ste4)">
+			</Rule>
+		</RuleSet>
+		<ContactMap Name="High resolution">
+			<Agent Name="Ste4">
+				<Site Name="gpa1" CanChangeState="false" CanBeBound="true">
+				</Site>
+				<Site Name="ste20" CanChangeState="false" CanBeBound="true">
+				</Site>
+				<Site Name="ste5" CanChangeState="false" CanBeBound="true">
+				</Site>
+			</Agent>
+			<Agent Name="Ste5">
+				<Site Name="ste4" CanChangeState="false" CanBeBound="true">
+				</Site>
+				<Site Name="ste5" CanChangeState="false" CanBeBound="true">
+				</Site>
+			</Agent>
+			<Agent Name="Gpa1">
+				<Site Name="nuc" CanChangeState="true" CanBeBound="false">
+				</Site>
+				<Site Name="ste2" CanChangeState="false" CanBeBound="true">
+				</Site>
+				<Site Name="ste4" CanChangeState="false" CanBeBound="true">
+				</Site>
+			</Agent>
+			<Agent Name="Pheromone">
+				<Site Name="ste2" CanChangeState="false" CanBeBound="true">
+				</Site>
+			</Agent>
+			<Agent Name="Sst2">
+				<Site Name="S539" CanChangeState="true" CanBeBound="false">
+				</Site>
+				<Site Name="mapk" CanChangeState="false" CanBeBound="false">
+				</Site>
+				<Site Name="ste2" CanChangeState="false" CanBeBound="true">
+				</Site>
+			</Agent>
+			<Agent Name="Ste2">
+				<Site Name="gpa1" CanChangeState="false" CanBeBound="true">
+				</Site>
+				<Site Name="pheromone" CanChangeState="false" CanBeBound="true">
+				</Site>
+				<Site Name="sst2" CanChangeState="false" CanBeBound="true">
+				</Site>
+			</Agent>
+			<Agent Name="Ste20">
+				<Site Name="ste4" CanChangeState="false" CanBeBound="true">
+				</Site>
+			</Agent>
+			<Agent Name="other">
+			</Agent>
+			<Bond FromAgent="Ste4" FromSite="ste20" ToAgent="Ste20" ToSite="ste4">
+				<Rule Id="0">
+				</Rule>
+				<Rule Id="4">
+				</Rule>
+				<Rule Id="28">
+				</Rule>
+				<Rule Id="33">
+				</Rule>
+				<Rule Id="37">
+				</Rule>
+				<Rule Id="13">
+				</Rule>
+				<Rule Id="14">
+				</Rule>
+				<Rule Id="17">
+				</Rule>
+				<Rule Id="21">
+				</Rule>
+				<Rule Id="26">
+				</Rule>
+				<Rule Id="31">
+				</Rule>
+				<Rule Id="36">
+				</Rule>
+				<Rule Id="41">
+				</Rule>
+				<Rule Id="43">
+				</Rule>
+			</Bond>
+			<Bond FromAgent="Ste4" FromSite="ste5" ToAgent="Ste5" ToSite="ste4">
+				<Rule Id="0">
+				</Rule>
+				<Rule Id="4">
+				</Rule>
+				<Rule Id="28">
+				</Rule>
+				<Rule Id="33">
+				</Rule>
+				<Rule Id="37">
+				</Rule>
+				<Rule Id="13">
+				</Rule>
+				<Rule Id="14">
+				</Rule>
+				<Rule Id="17">
+				</Rule>
+				<Rule Id="21">
+				</Rule>
+				<Rule Id="26">
+				</Rule>
+				<Rule Id="31">
+				</Rule>
+				<Rule Id="36">
+				</Rule>
+				<Rule Id="41">
+				</Rule>
+				<Rule Id="43">
+				</Rule>
+			</Bond>
+			<Bond FromAgent="Ste4" FromSite="gpa1" ToAgent="Gpa1" ToSite="ste4">
+				<Rule Id="0">
+				</Rule>
+				<Rule Id="4">
+				</Rule>
+				<Rule Id="28">
+				</Rule>
+				<Rule Id="33">
+				</Rule>
+				<Rule Id="37">
+				</Rule>
+				<Rule Id="13">
+				</Rule>
+				<Rule Id="14">
+				</Rule>
+				<Rule Id="17">
+				</Rule>
+				<Rule Id="21">
+				</Rule>
+				<Rule Id="26">
+				</Rule>
+				<Rule Id="31">
+				</Rule>
+				<Rule Id="36">
+				</Rule>
+				<Rule Id="41">
+				</Rule>
+				<Rule Id="43">
+				</Rule>
+			</Bond>
+			<Bond FromAgent="Ste5" FromSite="ste5" ToAgent="Ste5" ToSite="ste5">
+				<Rule Id="17">
+				</Rule>
+				<Rule Id="21">
+				</Rule>
+				<Rule Id="26">
+				</Rule>
+				<Rule Id="31">
+				</Rule>
+				<Rule Id="36">
+				</Rule>
+				<Rule Id="41">
+				</Rule>
+				<Rule Id="43">
+				</Rule>
+				<Rule Id="2">
+				</Rule>
+				<Rule Id="5">
+				</Rule>
+				<Rule Id="10">
+				</Rule>
+				<Rule Id="15">
+				</Rule>
+				<Rule Id="18">
+				</Rule>
+				<Rule Id="22">
+				</Rule>
+				<Rule Id="27">
+				</Rule>
+				<Rule Id="32">
+				</Rule>
+			</Bond>
+			<Bond FromAgent="Ste5" FromSite="ste4" ToAgent="Ste4" ToSite="ste5">
+				<Rule Id="17">
+				</Rule>
+				<Rule Id="21">
+				</Rule>
+				<Rule Id="26">
+				</Rule>
+				<Rule Id="31">
+				</Rule>
+				<Rule Id="36">
+				</Rule>
+				<Rule Id="41">
+				</Rule>
+				<Rule Id="43">
+				</Rule>
+				<Rule Id="2">
+				</Rule>
+				<Rule Id="5">
+				</Rule>
+				<Rule Id="10">
+				</Rule>
+				<Rule Id="15">
+				</Rule>
+				<Rule Id="18">
+				</Rule>
+				<Rule Id="22">
+				</Rule>
+				<Rule Id="27">
+				</Rule>
+				<Rule Id="32">
+				</Rule>
+			</Bond>
+			<Bond FromAgent="Gpa1" FromSite="ste2" ToAgent="Ste2" ToSite="gpa1">
+				<Rule Id="8">
+				</Rule>
+				<Rule Id="29">
+				</Rule>
+				<Rule Id="34">
+				</Rule>
+				<Rule Id="35">
+				</Rule>
+				<Rule Id="38">
+				</Rule>
+				<Rule Id="39">
+				</Rule>
+				<Rule Id="42">
+				</Rule>
+				<Rule Id="7">
+				</Rule>
+				<Rule Id="11">
+				</Rule>
+				<Rule Id="19">
+				</Rule>
+				<Rule Id="0">
+				</Rule>
+				<Rule Id="4">
+				</Rule>
+				<Rule Id="28">
+				</Rule>
+				<Rule Id="33">
+				</Rule>
+				<Rule Id="37">
+				</Rule>
+			</Bond>
+			<Bond FromAgent="Gpa1" FromSite="ste4" ToAgent="Ste4" ToSite="gpa1">
+				<Rule Id="8">
+				</Rule>
+				<Rule Id="29">
+				</Rule>
+				<Rule Id="34">
+				</Rule>
+				<Rule Id="35">
+				</Rule>
+				<Rule Id="38">
+				</Rule>
+				<Rule Id="39">
+				</Rule>
+				<Rule Id="42">
+				</Rule>
+				<Rule Id="7">
+				</Rule>
+				<Rule Id="11">
+				</Rule>
+				<Rule Id="19">
+				</Rule>
+				<Rule Id="0">
+				</Rule>
+				<Rule Id="4">
+				</Rule>
+				<Rule Id="28">
+				</Rule>
+				<Rule Id="33">
+				</Rule>
+				<Rule Id="37">
+				</Rule>
+			</Bond>
+			<Bond FromAgent="Pheromone" FromSite="ste2" ToAgent="Ste2" ToSite="pheromone">
+				<Rule Id="3">
+				</Rule>
+			</Bond>
+			<Bond FromAgent="Sst2" FromSite="ste2" ToAgent="Ste2" ToSite="sst2">
+				<Rule Id="23">
+				</Rule>
+				<Rule Id="24">
+				</Rule>
+			</Bond>
+			<Bond FromAgent="Ste2" FromSite="gpa1" ToAgent="Gpa1" ToSite="ste2">
+				<Rule Id="7">
+				</Rule>
+				<Rule Id="11">
+				</Rule>
+				<Rule Id="19">
+				</Rule>
+			</Bond>
+			<Bond FromAgent="Ste2" FromSite="pheromone" ToAgent="Pheromone" ToSite="ste2">
+				<Rule Id="3">
+				</Rule>
+				<Rule Id="6">
+				</Rule>
+			</Bond>
+			<Bond FromAgent="Ste2" FromSite="sst2" ToAgent="Sst2" ToSite="ste2">
+				<Rule Id="23">
+				</Rule>
+				<Rule Id="24">
+				</Rule>
+			</Bond>
+			<Bond FromAgent="Ste20" FromSite="ste4" ToAgent="Ste4" ToSite="ste20">
+				<Rule Id="13">
+				</Rule>
+				<Rule Id="14">
+				</Rule>
+			</Bond>
+		</ContactMap>
+		<Log>
+			<Entry Position="1260284933.494" Count="1" Message="JSIM: Build on 2009-12-07 16:00:02 EST from Revision SVN 10348, JRE: Sun Microsystems Inc. 1.6.0_17" Type="INFO">
+			</Entry>
+			<Entry Position="1260284933.494" Count="1" Message="-Initialization..." Type="INFO">
+			</Entry>
+			<Entry Position="1260284933.494" Count="1" Message="--Computing initial state" Type="INFO">
+			</Entry>
+			<Entry Position="1260284933.658" Count="1" Message="-Initialization: 0.156001 sec. CPU" Type="INFO">
+			</Entry>
+		</Log>
+	</ComplxSession>

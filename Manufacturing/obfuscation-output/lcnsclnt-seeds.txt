@@ -1,0 +1,12 @@
+com.plectix.license.client.License
+com.plectix.license.client.License: boolean isAuthorized(java.lang.String,java.lang.String)
+com.plectix.license.client.License: long getExpirationDate()
+com.plectix.license.client.License: java.lang.String getJsimKey()
+com.plectix.license.client.License: int getVersionNumber()
+com.plectix.license.client.License: java.lang.String getLicenseDataEncrypted()
+com.plectix.license.client.LicenseException
+com.plectix.license.client.LicenseException$NotLicensedException
+com.plectix.license.client.LicenseException$LicenseGenerationException
+com.plectix.license.client.LicenseException$InvalidLicenseException
+com.plectix.license.client.SecurityUtil
+com.plectix.license.client.SecurityUtil: com.plectix.license.client.License getLicense(java.lang.String,java.lang.String)

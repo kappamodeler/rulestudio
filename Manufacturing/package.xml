@@ -1,0 +1,341 @@
+<project name="kappa-workbench-manufacturing" default="all">
+
+	<!-- We need to use Ant-contrib -->
+	<taskdef resource="net/sf/antcontrib/antcontrib.properties"/>
+
+	<description>
+		This ant file defines the build process of Plectix's RuleStudio for Cellucidate
+	</description>
+
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+	<!-- Property Definitions.                                             -->
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+	<property file="build.properties"/>
+	
+	<property name="svn_root" value="" />
+	<property name="svn_username" value="" />
+	<property name="svn_password" value="" />
+	<property name="svn_revision" value="HEAD" />
+	<taskdef classname="org.tigris.subversion.svnant.SvnTask" name="svn" />
+
+	<property name="build-area" value="build" />
+	<property name="dist-area" value="dist" />
+	<property name="dependencies-area" value="dependencies" />
+	<property name="projects-to-get" value="${projects-to-build}" />
+
+	<property name="version" value="1.0.0" />
+		
+	<!-- unzip the build plugins into the update site directory -->
+	<unzip src="${build-area}/base/${buildLabel}/com.plectix.rulestudio.branding.feature-${buildLabel}.zip"
+		dest="${build-area}/archive">
+	</unzip>
+
+	<!-- This code pulls apart the plugins file name to get the  -->
+	<!-- version com.plectix.rulestudio.feature_1.0.0.200910202215.jar  -->
+	<!-- yields the value 1.0.0.200910202215  -->
+	<path id="mystery.file.id">
+	    <fileset dir="${build-area}/archive/com.plectix.rulestudio/plugins/">
+	        <include name="com.plectix.rulestudio.branding_*.jar"/>
+	     </fileset>
+	</path>
+	<property name="mystery.file" refid="mystery.file.id"/>
+	<echo message="The full path of the eclipse branding plugin ${mystery.file}"/> 
+
+    <propertyregex property="plugin-version-temp"
+              input="${mystery.file}"
+              regexp="(.*)(_)(.*)(.jar)"
+              replace="\3"
+              casesensitive="false" />
+
+	<echo message="The plugin version is - ${plugin-version-temp}"/> 
+	<property name="plugin-version" value="${plugin-version-temp}" />
+	
+	<property name="distro-name" value="plectix-rulestudio-workbench-${plugin-version}" />
+
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+	<!-- Inline Commands.                                                  -->
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+	<target name="start-fresh">
+		<delete dir="${dist-area}" />
+		<mkdir dir="${dist-area}" />
+	</target>
+
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+	<!-- Targets.                                                          -->
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+	<target name="all" depends="start-fresh,build-update-site,package-windows-distribution,package-mac-distribution,package-linux-distribution" />
+	
+	<!-- Package the distribution for windows -->
+	<target name="package-windows-distribution">
+		
+		<unzip src="${dependencies-area}/eclipse-java-galileo-SR1-win32.zip" dest="${build-area}/win"/> 		
+		
+		<antcall target="inject-kappa-workbench">
+		    <param name="os" value="win"/>
+		</antcall>
+		
+		<copy todir="${build-area}/win/eclipse" overwrite="true">
+			<fileset file="${dependencies-area}/eclipse.ini"/>
+		</copy>
+	
+		<copy todir="${build-area}/win/eclipse/configuration" overwrite="true">
+			<fileset file="${dependencies-area}/config.ini"/>
+		</copy>
+
+		<zip destfile="${dist-area}/${distro-name}-win32.zip">
+			<zipfileset dir="${build-area}/win" includes="**">
+			</zipfileset>
+		</zip> 		
+
+	</target>
+
+	<!-- Package the distribution for mac -->
+	<target name="package-mac-distribution">
+		
+		<antcall target="package-specific-mac-distribution">
+		    <param name="mac-kit" value="carbon"/>
+		</antcall>
+		
+<!--
+		<antcall target="package-specific-mac-distribution">
+		    <param name="mac-kit" value="cocoa"/>
+		</antcall>
+
+		<antcall target="package-specific-mac-distribution">
+		    <param name="mac-kit" value="cocoa-x86_64"/>
+		</antcall>
+-->
+	</target>
+	
+	<target name="package-specific-mac-distribution">
+	
+		<gunzip src="${dependencies-area}/eclipse-java-galileo-SR1-macosx-${mac-kit}.tar.gz" dest="${build-area}"/>
+		<untar src="${build-area}/eclipse-java-galileo-SR1-macosx-${mac-kit}.tar" dest="${build-area}/mac"/> 		
+	
+		<!--
+		-->
+		<antcall target="inject-kappa-workbench">
+		    <param name="os" value="mac"/>
+		</antcall>
+		
+		<!-- Modify the needed configuration files		-->
+		<copy tofile="${build-area}/mac/eclipse/Eclipse.app/Contents/MacOS/eclipse.ini" overwrite="true">
+			<fileset file="${dependencies-area}/eclipse-mac-${mac-kit}.ini"/>
+		</copy>
+
+		<copy tofile="${build-area}/mac/eclipse/configuration/config.ini" overwrite="true">
+			<fileset file="${dependencies-area}/config-mac-${mac-kit}.ini"/>
+		</copy>
+
+		<!--
+		<antcall target="change-app-name">
+		    <param name="os" value="mac"/>
+		</antcall>
+		-->
+		
+		<!-- Ant's copy tasks (copy, tar, untar) changes the permission of the file when copied 	-->
+		<!-- if we don't do this then Eclipse won't run on the Mac	 			-->
+		<!-- The problem is that this doesn't work on windows.	 			-->
+		<!-- to get the distribution to work on a Mac you need to execute	 			-->
+		<!-- chmod 755 Eclipse.app/Contents/MacOS/eclipse	 			-->
+		<chmod dir="${build-area}/mac/eclipse/Eclipse.app/Contents/MacOS" 
+			includes="eclipse"
+			perm="ugo+rx"/>
+
+		<tar destfile="${dist-area}/${distro-name}-macosx-${mac-kit}.tar">
+			<tarfileset dir="${build-area}/mac" includes="**">
+			</tarfileset>
+		</tar> 		
+		
+		<gzip src="${dist-area}/${distro-name}-macosx-${mac-kit}.tar" 
+			destfile="${dist-area}/${distro-name}-macosx-${mac-kit}.tar.gz"/>
+
+		<delete file="${dist-area}/${distro-name}-macosx-${mac-kit}.tar"/>
+
+	</target>
+	
+	<target name="package-linux-distribution">
+	
+		<gunzip src="${dependencies-area}/eclipse-java-galileo-SR1-linux-gtk.tar.gz" dest="${build-area}"/>
+		<untar src="${build-area}/eclipse-java-galileo-SR1-linux-gtk.tar" dest="${build-area}/linux"/> 		
+	
+		<!--
+		-->
+		<antcall target="inject-kappa-workbench">
+		    <param name="os" value="linux"/>
+		</antcall>
+		
+		<!-- Modify the needed configuration files		-->
+		<copy tofile="${build-area}/linux/eclipse/eclipse.ini" overwrite="true">
+			<fileset file="${dependencies-area}/eclipse-linux-gtk.ini"/>
+		</copy>
+
+		<copy tofile="${build-area}/linux/eclipse/configuration/config.ini" overwrite="true">
+			<fileset file="${dependencies-area}/config-linux-gtk.ini"/>
+		</copy>
+
+		<!-- Ant's copy tasks (copy, tar, untar) changes the permission of the file when copied 	-->
+		<!-- if we don't do this then Eclipse won't run on the Mac	 			-->
+		<!-- The problem is that this doesn't work on windows.	 			-->
+		<!-- to get the distribution to work on a Mac you need to execute	 			-->
+		<!-- chmod 755 Eclipse.app/Contents/MacOS/eclipse	 			-->
+		<chmod dir="${build-area}/linux/eclipse" 
+			includes="eclipse"
+			perm="ugo+rx"/>
+
+		<tar destfile="${dist-area}/${distro-name}-linux-gtk.tar">
+			<tarfileset dir="${build-area}/linux" includes="**">
+			</tarfileset>
+		</tar> 		
+		
+		<gzip src="${dist-area}/${distro-name}-linux-gtk.tar" 
+			destfile="${dist-area}/${distro-name}-linux-gtk.tar.gz"/>
+
+		<delete file="${dist-area}/${distro-name}-linux-gtk.tar"/>
+
+	</target>
+	
+	<!-- this target makes it possible to change the name of the -->
+	<!-- application to plectix and add the plectix icon -->
+	<target name="change-app-name">
+		<copy tofile="${build-area}/mac/eclipse/Eclipse.app/Contents/Info.plist" overwrite="true">
+			<fileset file="${dependencies-area}/Info-${mac-kit}.plist"/>
+		</copy>
+		
+		<!-- Add the plectix icon -->
+		<copy tofile="${build-area}/mac/eclipse/Eclipse.app/Contents/Resources/Plectix.icns" overwrite="true">
+			<fileset file="${dependencies-area}/Plectix.icns"/>
+		</copy>
+
+		<!-- Change the name of the eclipse.ini file. -->
+		<copy tofile="${build-area}/mac/eclipse/Eclipse.app/Contents/MacOS/plectix.ini">
+			<fileset file="${build-area}/mac/eclipse/Eclipse.app/Contents/MacOS/eclipse.ini"/>
+		</copy>
+
+		<!-- Remove the following items -->
+		<!-- Eclipse.app/Contents/MaxOS/eclipse.ini -->
+		<!-- Eclipse.app/Contents/Resources/Eclipse.icns -->
+		<delete file="${build-area}/mac/eclipse/Eclipse.app/Contents/MacOS/eclipse.ini"/>
+		<delete file="${build-area}/mac/eclipse/Eclipse.app/Contents/Resources/Eclipse.icns"/>
+		
+		<!-- Need to change the names of the following items: -->
+		<!-- Eclipse.app -> Plectix.app -->
+		<!-- Eclipse.app/Contents/MaxOS/eclipse -> plectix -->
+		<move file="${build-area}/mac/eclipse/Eclipse.app/Contents/MacOS/eclipse" 
+			tofile="${build-area}/mac/eclipse/Eclipse.app/Contents/MacOS/plectix"/>
+		
+		<copy todir="${build-area}/mac/eclipse/Plectix.app"> 
+			<fileset dir="${build-area}/mac/eclipse/Eclipse.app"/>
+		</copy>
+		<delete dir="${build-area}/mac/eclipse/Eclipse.app"/>
+		<!-- -->
+		<delete file="${build-area}/mac/eclipse/eclipse"/>		
+
+	</target>
+	
+	<!-- This target merges in the kappa workbench code into the eclipse -->
+	<target name="inject-kappa-workbench">
+		<delete includeemptydirs="true">
+		    <fileset dir="${build-area}/${os}/eclipse/plugins" includes="*.wst.*.jar"/>
+		    <fileset dir="${build-area}/${os}/eclipse/plugins" includes="*.cvs*.jar"/>
+		    <fileset dir="${build-area}/${os}/eclipse/plugins" includes="*.mylyn*.jar"/>
+		    <fileset dir="${build-area}/${os}/eclipse/plugins" includes="*.jdt*.jar"/>
+		    <fileset dir="${build-area}/${os}/eclipse/plugins" includes="*.jdt.*/**"/>
+		    <fileset dir="${build-area}/${os}/eclipse/plugins" includes="*.emf*/**"/>
+	
+		    <fileset dir="${build-area}/${os}/eclipse/features" includes="*.jdt*/**"/>
+		    <fileset dir="${build-area}/${os}/eclipse/features" includes="*.mylyn*/**"/>
+		    <fileset dir="${build-area}/${os}/eclipse/features" includes="*.wst.*/**"/>
+		    <fileset dir="${build-area}/${os}/eclipse/features" includes="*.cvs*/**"/>
+		</delete>
+		
+		<unzip src="${dist-area}/update-site/features/com.plectix.rulestudio.branding.feature_${plugin-version}.jar" 
+				dest="${build-area}/${os}/eclipse/features/com.plectix.rulestudio.branding.feature_${plugin-version}"/> 		
+		<unzip src="${dist-area}/update-site/features/com.plectix.rulestudio.feature_${plugin-version}.jar" 
+				dest="${build-area}/${os}/eclipse/features/com.plectix.rulestudio.feature_${plugin-version}"/> 	
+					
+		<copy todir="${build-area}/${os}/eclipse/plugins">
+			<fileset dir="${dist-area}/update-site/plugins">
+				<exclude name="**/com.plectix.rulestudio.branding_${plugin-version}.jar"/>
+				<exclude name="**/com.plectix.rulestudio.views_${plugin-version}.jar"/>
+			</fileset>
+		</copy>
+
+		<unzip src="${dist-area}/update-site/plugins/com.plectix.rulestudio.branding_${plugin-version}.jar" 
+				dest="${build-area}/${os}/eclipse/plugins/com.plectix.rulestudio.branding_${plugin-version}"/> 		
+
+		<replace file="${build-area}/${os}/eclipse/plugins/com.plectix.rulestudio.branding_${plugin-version}/plugin.properties" token="$[version]" value="${plugin-version}"/>
+
+		<unzip src="${dist-area}/update-site/plugins/com.plectix.rulestudio.views_${plugin-version}.jar" 
+				dest="${build-area}/${os}/eclipse/plugins/com.plectix.rulestudio.views_${plugin-version}"/> 		
+
+	</target>
+
+	<!-- 	BUILD UPDATE SITE		-->
+	<!-- 	BUILD UPDATE SITE		-->
+	<!-- 	BUILD UPDATE SITE		-->
+	<!-- 	BUILD UPDATE SITE		-->
+	<!-- 	BUILD UPDATE SITE		-->
+	<target name="build-update-site" depends="eclipse-update-site, eclipse-update-archive"/>	
+	
+	<!-- Take the built plugins and features and move it over to the distribution area -->
+	<target name="eclipse-update-site">
+		
+		<delete dir="${dist-area}/update-site"/>
+		
+		<mkdir dir="${dist-area}/update-site" />
+		<mkdir dir="${dist-area}/update-site/features" />
+		<mkdir dir="${dist-area}/update-site/plugins" />
+		
+		<copy file="${build-area}/base/com.plectix.rulestudio.updatesite/site.xml" 
+				tofile="${dist-area}/update-site/site.xml"/>
+		
+		<replace file="${dist-area}/update-site/site.xml" 
+					token="1.0.0.qualifier" value="${plugin-version}"/>
+						
+		<!-- copy the jar'd plugins into the plugin directory -->
+		<copy todir="${dist-area}/update-site/plugins">
+		  <fileset dir="${build-area}/archive/com.plectix.rulestudio/plugins/">
+		  	<include name="*.jar"/>
+		  </fileset>
+		</copy>
+		
+		<!-- Use zip to make sure we use the right manifest file -->
+		<zip destfile="${dist-area}/update-site/plugins/com.plectix.rulestudio.views_${plugin-version}.jar">
+			<zipfileset dir="${build-area}/archive/com.plectix.rulestudio/plugins/com.plectix.rulestudio.views_${plugin-version}" includes="**">
+			</zipfileset>
+		</zip> 		
+
+		<!-- we need to jar up the plugins and features that weren't in the build -->
+		<jar destfile="${dist-area}/update-site/features/com.plectix.rulestudio.branding.feature_${plugin-version}.jar">
+			<fileset dir="${build-area}/archive/com.plectix.rulestudio/features/com.plectix.rulestudio.branding.feature_${plugin-version}" 
+				includes="**"/>
+		</jar>
+
+		<!-- we need to jar up the plugins and features that weren't in the build -->
+		<jar destfile="${dist-area}/update-site/features/com.plectix.rulestudio.feature_${plugin-version}.jar">
+			<fileset dir="${build-area}/archive/com.plectix.rulestudio/features/com.plectix.rulestudio.feature_${plugin-version}" 
+				includes="**"/>
+		</jar>
+	</target>	
+		
+	<!-- Build the distribution this creates a archived version of the update site -->
+	<target name="eclipse-update-archive">
+		<zip destfile="${dist-area}/update-site/rulestudio-workbench-update-site.zip">
+			<zipfileset dir="${dist-area}/update-site" includes="**">
+			</zipfileset>
+		</zip> 		
+	</target>
+
+	<!-- This is needed to move the contents of the update site to the server that will host it. -->
+	<target name="update-update-site">
+		<ftp server=""
+			remotedir="update"
+			userid=""
+			password=""
+			depends="yes">
+			<fileset dir="${dist-area}/update-site"/>
+		</ftp>
+	</target>
+		
+</project>

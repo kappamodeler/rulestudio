@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+	<ComplxSession xmlns="http://plectix.synthesisstudios.com/schemas/kappasession" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" CommandLine="--no-build-influence-map --no-compute-qualitative-compression --no-compute-quantitative-compression --no-dump-iteration-number --no-dump-rule-iteration --no-enumerate-complexes --contact-map C:\Users\bill\plectix\ws1\jsim.validate\testCases\MyKappa.ka --xml-session-name C:\Users\bill\plectix\ws1\jsim.validate\testCases\MyKappa.ka.xml" InputFile="C:\Users\bill\plectix\ws1\jsim.validate\testCases\MyKappa.ka" TimeStamp="2009-12-08 10:08:53">
+		<RuleSet Name="Original">
+			<Rule Type="RULE" Name="name" Id="1" Data="A(x),B(y)-&gt;A(x!0),B(y!0)">
+			</Rule>
+		</RuleSet>
+		<ContactMap Name="High resolution">
+			<Agent Name="A">
+				<Site Name="x" CanChangeState="false" CanBeBound="true">
+				</Site>
+			</Agent>
+			<Agent Name="B">
+				<Site Name="y" CanChangeState="false" CanBeBound="true">
+				</Site>
+			</Agent>
+			<Bond FromAgent="A" FromSite="x" ToAgent="B" ToSite="y">
+				<Rule Id="0">
+				</Rule>
+			</Bond>
+			<Bond FromAgent="B" FromSite="y" ToAgent="A" ToSite="x">
+				<Rule Id="0">
+				</Rule>
+			</Bond>
+		</ContactMap>
+		<Log>
+			<Entry Position="1260284933.800" Count="1" Message="JSIM: Build on 2009-12-07 16:00:02 EST from Revision SVN 10348, JRE: Sun Microsystems Inc. 1.6.0_17" Type="INFO">
+			</Entry>
+			<Entry Position="1260284933.800" Count="1" Message="-Initialization..." Type="INFO">
+			</Entry>
+			<Entry Position="1260284933.801" Count="1" Message="--Computing initial state" Type="INFO">
+			</Entry>
+			<Entry Position="1260284933.802" Count="1" Message="-Initialization: 0.0 sec. CPU" Type="INFO">
+			</Entry>
+		</Log>
+	</ComplxSession>

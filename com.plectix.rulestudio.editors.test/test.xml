@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+	<ComplxSession xmlns="http://plectix.synthesisstudios.com/schemas/kappasession" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" CommandLine="--no-build-influence-map --no-compute-qualitative-compression --no-compute-quantitative-compression --no-dump-iteration-number --no-dump-rule-iteration --no-enumerate-complexes --contact-map C:\Users\bill\plectix\svn\eclipse_plugins\com.plectix.kappa.editors.test\test.ka --xml-session-name C:\Users\bill\plectix\svn\eclipse_plugins\com.plectix.kappa.editors.test\test.xml" InputFile="C:\Users\bill\plectix\svn\eclipse_plugins\com.plectix.kappa.editors.test\test.ka" TimeStamp="2009-12-29 21:16:00">
+		<RuleSet Name="Original">
+			<Rule Type="RULE" Name="rule" Id="1" Data="A(x)-&gt;B(y)">
+			</Rule>
+		</RuleSet>
+		<ContactMap Name="High resolution">
+			<Agent Name="a">
+				<Site Name="s1" CanChangeState="false" CanBeBound="true">
+				</Site>
+				<Site Name="s2" CanChangeState="true" CanBeBound="false">
+				</Site>
+			</Agent>
+			<Agent Name="b">
+				<Site Name="s1" CanChangeState="false" CanBeBound="true">
+				</Site>
+			</Agent>
+			<Bond FromAgent="a" FromSite="s1" ToAgent="b" ToSite="s1">
+			</Bond>
+			<Bond FromAgent="b" FromSite="s1" ToAgent="a" ToSite="s1">
+			</Bond>
+		</ContactMap>
+		<Log>
+			<Entry Position="1262139360.378" Count="1" Message="JSIM: Build on 2009-12-07 16:00:02 EST from Revision SVN 10348, JRE: Sun Microsystems Inc. 1.6.0_17" Type="INFO">
+			</Entry>
+			<Entry Position="1262139360.378" Count="1" Message="-Initialization..." Type="INFO">
+			</Entry>
+			<Entry Position="1262139360.380" Count="1" Message="--Computing initial state" Type="INFO">
+			</Entry>
+			<Entry Position="1262139360.381" Count="1" Message="-Initialization: 0.0 sec. CPU" Type="INFO">
+			</Entry>
+		</Log>
+	</ComplxSession>

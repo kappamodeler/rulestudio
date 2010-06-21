@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="com.plectix.rulestudio.branding.feature"
+      label="RuleStudio Branding Feature"
+      version="1.0.0.qualifier"
+      provider-name="PLECTIX"
+      plugin="com.plectix.rulestudio.branding">
+
+   <description>
+      This feature contains the branding information for RuleStudio for Cellucidate
+   </description>
+
+   <copyright>
+      %copyright
+   </copyright>
+
+   <license>
+      %license
+   </license>
+
+   <includes
+         id="com.plectix.rulestudio.feature"
+         version="0.0.0"/>
+
+   <plugin
+         id="com.plectix.rulestudio.branding"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+</feature>

@@ -1,0 +1,53 @@
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		
+		<title>ContactMap</title>
+		<script src="jquery.js" type="text/javascript"> </script>
+		<script src="swfobject.js" type="text/javascript"> </script>
+		<script src="flash-communication.js" type="text/javascript"> </script>
+		
+		<style>
+			body { margin: 0px; overflow:hidden }
+		</style>
+		<script language="JavaScript" type="text/javascript">
+				    
+		    $(function() {             
+		        $('#ContactMapEmbed').flash({
+		                    'swf': 'ContactMap.swf',
+		                    'height': '100%',
+		                    'width': '100%',
+		                    'id': 'contact_mapEmbed',
+		                    'name': 'contact_mapEmbed',
+		                    'class': 'flash_object',
+		                    'hasVersion': '9.0.115',
+		                    'expressInstaller': 'expressInstall.swf',
+		                    'wmode': 'transparent',
+		                    'params': {
+		                      'allowfullscreen': false,
+		                      'allowscriptaccess': 'sameDomain',
+		                      'flashvars': {
+		                      		"depth":5,
+		                      		"outerLinks":true,
+		                      		"log":"filtered",
+		                      		"focusAgent":"{REPLACE_WITH_AGENT_NAME}",
+		                      		"allowFullScreen":false,
+		                      		"id":"contact_mapEmbed",
+		                      		"mapsUrl":"contact_map.xml",
+		                      		"showAgentOverlays": false,
+		                      		"ruleLink":false
+		                      	}
+		                    }
+		                }); 
+		        });
+		        
+		</script>
+	</head>
+
+	<body scroll="no">
+	    <table width="100%" height="100%" border="0">
+	    	<tr><td id="ContactMapEmbed">
+	    	</td></tr>
+	    </table>
+	</body>
+</html>

@@ -1,0 +1,127 @@
+<html>
+<style>
+    
+    body {
+        font-size: 8pt;
+        font-family: Verdana;
+        text-align: center;
+        background-color: #FFF;
+        margin:0px;
+        padding:20px 0px;
+    } .hot {
+        border: solid 1px white;
+        font-size: 10pt;
+        font-weight: bold;
+        color: #295a8f;
+        cursor: pointer;
+        padding: 3px;
+        margin-bottom: 15px;
+        width: 400px;
+    } .desc {
+        font-size: 8pt;
+        font-weight: normal;
+        color: #555;
+    } #welcome{
+        font-size: 3em;
+        font-weight: bold;
+        color: #69A630;
+    }
+    .container{
+		border:1px solid #BBBBBB;
+    }
+    
+    a {
+        text-decoration: none;
+    }
+    
+    a:hover {
+        color: orange;
+    }
+    
+    a:active {
+        color: #0000CC;
+    }
+    
+    .controls {
+        font-size: 8pt;
+		-moz-background-clip: border;
+		-moz-background-inline-policy: continuous;
+		-moz-background-origin: padding;
+		background: #5CA931 url(./images/bg_green_gloss.jpg) repeat-x scroll 50% 50%;
+		border-bottom: 1px solid #70AA4F;
+		border-top: 1px solid #A9D293;
+		min-height: 20px;
+		padding: 0.5em 0;
+	}
+    
+    a:visited {
+        color: blue;
+    } #global {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 900px;
+        height: 400px;
+        margin-top: -200px; /* half of the height */
+        margin-left: -450px; /* half of the width */
+        text-align: left;
+    } #right {
+        float: left;
+        /* border: 1px solid red; */
+        width: 430px;
+        height: 250px;
+    } #left {
+        float: left;
+        /* border: 1px solid red;  */
+        width: 250px;
+        height: 250px;
+        margin: 0px;
+        padding-right: 20px;
+    } #target {
+        float: right;
+        /* border: 1px solid red; */
+        width: 200px;
+        margin-top: 10px;
+    }
+    
+</style>
+<html>
+    <body>
+	        <!-- center box -->
+	        <div id="welcome">Welcome to RuleStudio for Cellucidate<br/><br/></div>
+	        <div class="controls">&nbsp;</div>
+	        <div id="global">
+	            <br/><br/><br/><br/><br/>
+	            <div id="left">
+	                <img src="images/logo.png" align="right" style="margin: 40px;"/>
+	            </div>
+	            <div id="right">
+	                <div class="hot" onClick ="document.location='http://org.eclipse.ui.intro/runAction?class=com.plectix.rulestudio.core.actions.CreateBookWizard&pluginId=com.plectix.rulestudio.core';" 
+						onMouseMove="this.style.border='solid 1px #b7db70';" onMouseOut="this.style.border='solid 1px white'; this.style.color = '#295A8F'; ">
+	                    Create a Model
+	                    <br/>
+	                    <span class="desc">Creating a model with rules to study.</span>
+	                </div>
+	                <div class="hot" onClick="document.location='http://org.eclipse.ui.intro/runAction?class=com.plectix.rulestudio.core.actions.ExportWizard&pluginId=com.plectix.rulestudio.core';" 
+	                			onMouseMove="this.style.border='solid 1px #b7db70';" onMouseOut="this.style.border='solid 1px white';">
+	                    Export to Cellucidate
+	                    <br/>
+	                    <span class="desc">Export a model to Cellucidate.</span>
+	                </div>
+	                <div class="hot" onClick="document.location='http://org.eclipse.ui.intro/runAction?class=com.plectix.rulestudio.core.actions.OpenWorkbenchPerspective&pluginId=com.plectix.rulestudio.core';" 
+	                			onMouseMove="this.style.border='solid 1px #b7db70';" onMouseOut="this.style.border='solid 1px white';">
+	                    Open the modelling Perspective
+	                    <br/>
+	                    <span class="desc">Opening the workbench perspective gives you full access to all features.</span>
+	                </div>
+	                <a href="http://cellucidate.com/" target="_new">
+	                    <div class="hot" onMouseMove="this.style.border='solid 1px #b7db70';" onMouseOut="this.style.border='solid 1px white';">
+	                        Cellucidate
+	                        <br/>
+	                        <span class="desc">Go online to work with Cellucidate</span>
+	                    </div>
+	                </a>
+	            </div>
+	        </div>
+    </body>
+</html>

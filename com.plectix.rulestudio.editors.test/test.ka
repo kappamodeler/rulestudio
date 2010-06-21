@@ -1,0 +1,3 @@
+# test file
+'rule' A(x) -> B(y)
+%init: 1 * a(s1!1,s2~u),b(s1!1)

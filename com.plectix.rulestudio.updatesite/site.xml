@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <description name="RuleStudio for Cellucidate Update Site" url="http://www.cellucidate.com">
+      This update site contains the plugins for the kappa workbench plugins.
+   </description>
+   <feature url="features/com.plectix.rulestudio.branding.feature_1.0.0.qualifier.jar" id="com.plectix.rulestudio.branding.feature" version="1.0.0.qualifier">
+      <category name="com.plectix.rulestudio.updatesite"/>
+   </feature>
+   <feature url="features/com.plectix.rulestudio.feature_1.0.0.qualifier.jar" id="com.plectix.rulestudio.feature" version="1.0.0.qualifier">
+      <category name="com.plectix.rulestudio.updatesite"/>
+   </feature>
+   <category-def name="com.plectix.rulestudio.updatesite" label="RuleStudio Update Site"/>
+</site>

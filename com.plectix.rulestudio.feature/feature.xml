@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="com.plectix.rulestudio.feature"
+      label="RuleStudio for Cellucidate"
+      version="1.0.0.qualifier"
+      provider-name="Plectix">
+
+   <description>
+      This feature contains all the plug-ins necessary to develop your
+models.
+   </description>
+
+   <copyright>
+      %copyright
+   </copyright>
+
+   <license>
+      %license
+   </license>
+
+   <plugin
+         id="com.plectix.rulestudio.core"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="com.plectix.rulestudio.editors"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="com.plectix.rulestudio.views"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"/>
+
+</feature>

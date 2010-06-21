@@ -1,0 +1,15 @@
+How to install the RuleStudio plug-ins
+
+Jar File Instructions
+1.  Download the jar onto your local system.
+2.  Start the product
+3.  Select Help/Install New Software...
+4.  Click on Add to add a new site.
+5.  Select archive and select the jar file you downloaded in step 1.
+6.  Give it a name, like RuleStudio (the actual name is not important).
+7.  Check RuleStudio Update Site.
+8.  Click next.
+9.  You should see 2 features to install, click next.
+10.  Click on the RuleStudio features to see the current licenses.
+11.  Click finish.
+12.  Accept the unsigned jar files.

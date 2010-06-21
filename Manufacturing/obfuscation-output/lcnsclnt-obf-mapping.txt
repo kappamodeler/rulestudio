@@ -1,0 +1,32 @@
+com.plectix.license.client.License -> com.plectix.license.client.License:
+    int versionNumber -> Code
+    void setLicenseDataPlain(java.lang.String) -> Code
+    boolean isAuthorized(java.lang.String,java.lang.String) -> isAuthorized
+    long getExpirationDate() -> getExpirationDate
+    java.lang.String getJsimKey() -> getJsimKey
+    68:68:int getVersionNumber() -> getVersionNumber
+    72:72:java.lang.String getLicenseDataEncrypted() -> getLicenseDataEncrypted
+com.plectix.license.client.LicenseException -> com.plectix.license.client.LicenseException:
+com.plectix.license.client.LicenseException$InvalidLicenseException -> com.plectix.license.client.LicenseException$InvalidLicenseException:
+com.plectix.license.client.LicenseException$LicenseGenerationException -> com.plectix.license.client.LicenseException$LicenseGenerationException:
+com.plectix.license.client.LicenseException$NotLicensedException -> com.plectix.license.client.LicenseException$NotLicensedException:
+com.plectix.license.client.License_V1 -> com.plectix.license.client.aux:
+    long creationDate -> Code
+    long expirationDate -> V
+    java.lang.String username -> Code
+    java.lang.String apiKey -> V
+    java.lang.String jsimKey -> I
+    42:53:void setLicenseDataPlain(java.lang.String) -> Code
+    102:116:boolean isAuthorized(java.lang.String,java.lang.String) -> isAuthorized
+    154:157:java.lang.String getString(java.util.StringTokenizer,java.lang.String) -> Code
+    169:169:long getLong(java.util.StringTokenizer,java.lang.String) -> Code
+    200:200:long getExpirationDate() -> getExpirationDate
+    205:205:java.lang.String getJsimKey() -> getJsimKey
+com.plectix.license.client.SecurityUtil -> com.plectix.license.client.SecurityUtil:
+    java.security.PublicKey publicKey -> Code
+    45:52:byte[] convertFromHexStringToBytes(java.lang.String) -> Code
+    62:65:byte[] getBytes(java.lang.String) -> V
+    76:79:java.lang.String getString(byte[]) -> Code
+    94:98:java.security.PublicKey readPublicKeyFromHexString(java.lang.String) -> Code
+    115:121:boolean validateRSASignature(java.lang.String,java.lang.String,java.security.PublicKey) -> Code
+    169:203:com.plectix.license.client.License getLicense(java.lang.String,java.lang.String) -> getLicense

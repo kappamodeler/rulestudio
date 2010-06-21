@@ -1,0 +1,353 @@
+com.plectix.simulator.BuildConstants
+com.plectix.simulator.SimulationMain:
+    private static final java.lang.String LOG4J_PROPERTIES_FILENAME
+    public static final java.lang.String COMMAND_LINE_SYNTAX
+com.plectix.simulator.api.Api
+com.plectix.simulator.api.Api$1
+com.plectix.simulator.controller.SimulationService:
+    87:90:public com.plectix.simulator.controller.SimulatorProgressMonitor submit(java.util.List,com.plectix.simulator.controller.SimulatorCallableListener)
+    104:118:public com.plectix.simulator.controller.SimulatorResultsData getSimulatorResultsData(long,long,java.util.concurrent.TimeUnit)
+    197:201:public boolean isCancelled(long)
+    212:216:public boolean isDone(long)
+com.plectix.simulator.controller.SimulatorCallable:
+    84:84:public final com.plectix.simulator.controller.SimulatorResultsData getSimulatorResultsData()
+com.plectix.simulator.controller.SimulatorCallableExitReport:
+    31:34:public int getRunTimeInMillis()
+    45:45:public final long getSimulatorCallableId()
+    53:53:public final long getStartTimestamp()
+    61:61:public final long getEndTimestamp()
+com.plectix.simulator.controller.SimulatorInterface:
+    public abstract java.lang.String getName()
+com.plectix.simulator.controller.SimulatorProgressMonitor
+com.plectix.simulator.controller.SimulatorResultsData:
+    29:33:public void addResultSource(javax.xml.transform.Source)
+    36:36:public java.util.List getResultSource()
+    51:52:public final void setSimulatorExitReport(com.plectix.simulator.controller.SimulatorCallableExitReport)
+com.plectix.simulator.controller.SimulatorStatusInterface:
+    public abstract int getCurrentIterationNumber()
+    public abstract double getCurrentTime()
+    public abstract double getCurrentEventNumber()
+    public abstract int getNumberOfObservables()
+    public abstract java.lang.String getObservableName(int)
+    public abstract int getObservableCount(int)
+com.plectix.simulator.gui.lib.AWTExceptionHandler
+com.plectix.simulator.gui.lib.ColorMap
+com.plectix.simulator.gui.lib.DialogPanel
+com.plectix.simulator.gui.lib.DialogPanel$1
+com.plectix.simulator.gui.lib.DialogPanel$2
+com.plectix.simulator.gui.lib.DialogPanel$3
+com.plectix.simulator.gui.lib.GUIMain
+com.plectix.simulator.gui.lib.GradientPanelUI:
+    16:19:public GradientPanelUI(java.awt.Color,java.awt.Color)
+com.plectix.simulator.gui.lib.GridBagPanel
+com.plectix.simulator.gui.lib.GridBagPanel$GridBagConstraintsEx
+com.plectix.simulator.gui.lib.HorizontalLinePanel
+com.plectix.simulator.gui.lib.MainPanel
+com.plectix.simulator.gui.lib.MainWindow
+com.plectix.simulator.gui.lib.PromptDialogs
+com.plectix.simulator.gui.lib.PromptDialogs$1
+com.plectix.simulator.gui.lib.Settings
+com.plectix.simulator.gui.lib.SplitPanel
+com.plectix.simulator.gui.lib.UIProperties
+com.plectix.simulator.gui.lib.WaitingEventQueue
+com.plectix.simulator.gui.lib.WaitingEventQueue$1
+com.plectix.simulator.gui.panel.ChartZoomInfo
+com.plectix.simulator.gui.panel.ConsolePrintStream
+com.plectix.simulator.gui.panel.ControlPanel
+com.plectix.simulator.gui.panel.ControlPanel$1
+com.plectix.simulator.gui.panel.ControlPanel$2
+com.plectix.simulator.gui.panel.ControlPanel$3
+com.plectix.simulator.gui.panel.ControlPanel$4
+com.plectix.simulator.gui.panel.ControlPanel$5
+com.plectix.simulator.gui.panel.ControlPanelListener
+com.plectix.simulator.gui.panel.GraphPanel
+com.plectix.simulator.gui.panel.GraphPanel$ItemRenderer
+com.plectix.simulator.gui.panel.MainPanel
+com.plectix.simulator.gui.panel.SimulationSettings
+com.plectix.simulator.interfaces.ActivationMapInterface
+com.plectix.simulator.interfaces.SolutionElementInterface:
+    public abstract boolean unify(com.plectix.simulator.staticanalysis.Agent)
+    public abstract com.plectix.simulator.simulationclasses.injections.Injection getFirstInjection()
+    public abstract java.util.Collection getInjectionsList()
+com.plectix.simulator.interfaces.SolutionInterface:
+    public abstract java.util.Collection split()
+    public abstract java.util.List cloneAgentsList(java.util.List)
+com.plectix.simulator.io.ConsoleOutputManager:
+    216:216:public java.util.List getInfo()
+com.plectix.simulator.io.xml.InfluenceMapXMLWriter:
+    private static final java.lang.String TYPE_NEGATIVE_MAP
+    private static final java.lang.String TYPE_POSITIVE_MAP
+com.plectix.simulator.io.xml.OurXMLWriter:
+    private static final java.lang.String ENTER
+    private static final java.lang.String TAB
+    81:82:public void close()
+com.plectix.simulator.io.xml.SimulationDataXMLWriter:
+    public static final int NUMBER_OF_SIGNIFICANT_DIGITS
+com.plectix.simulator.parser.BadOptionException:
+    private static final long serialVersionUID
+com.plectix.simulator.parser.DocumentFormatException:
+    private static final long serialVersionUID
+com.plectix.simulator.parser.FileReadingException:
+    private static final long serialVersionUID
+com.plectix.simulator.parser.IncompletesDisabledException:
+    private static final long serialVersionUID
+com.plectix.simulator.parser.KappaFileLine:
+    18:18:public final int getLineNumber()
+com.plectix.simulator.parser.ParseErrorException:
+    private static final long serialVersionUID
+com.plectix.simulator.parser.ParseErrorMessage:
+    58:58:public final java.lang.String getMessage(java.lang.String)
+com.plectix.simulator.parser.SimulationDataFormatException:
+    private static final long serialVersionUID
+    51:51:public com.plectix.simulator.parser.ParseErrorMessage getErrorType()
+com.plectix.simulator.parser.abstractmodel.KappaModel:
+    21:21:public final com.plectix.simulator.util.IdGenerator getAgentIdGenerator()
+    25:25:public final com.plectix.simulator.util.IdGenerator getRuleIdGenerator()
+    53:54:public final void addRule(com.plectix.simulator.parser.abstractmodel.ModelRule)
+com.plectix.simulator.parser.abstractmodel.ModelAgent$ComparableSite:
+    45:45:public final com.plectix.simulator.parser.abstractmodel.ModelSite getSite()
+com.plectix.simulator.parser.abstractmodel.ModelPerturbation:
+    26:26:public final int getId()
+com.plectix.simulator.parser.abstractmodel.observables.ModelObservableRule
+com.plectix.simulator.parser.abstractmodel.perturbations.LinearModification
+com.plectix.simulator.parser.abstractmodel.perturbations.SpeciesConditionExpression
+com.plectix.simulator.parser.abstractmodel.reader.KappaParagraphReader:
+    public abstract java.lang.Object readComponent(com.plectix.simulator.parser.KappaFileParagraph)
+com.plectix.simulator.parser.abstractmodel.reader.ObservablesParagraphReader:
+    11:11:public java.lang.Object readComponent(com.plectix.simulator.parser.KappaFileParagraph)
+com.plectix.simulator.parser.abstractmodel.reader.PerturbationsParagraphReader:
+    32:32:public java.lang.Object readComponent(com.plectix.simulator.parser.KappaFileParagraph)
+com.plectix.simulator.parser.abstractmodel.reader.RulesParagraphReader:
+    18:18:public java.lang.Object readComponent(com.plectix.simulator.parser.KappaFileParagraph)
+com.plectix.simulator.parser.abstractmodel.reader.SolutionParagraphReader:
+    16:16:public java.lang.Object readComponent(com.plectix.simulator.parser.KappaFileParagraph)
+com.plectix.simulator.parser.abstractmodel.reader.StoriesParagraphReader:
+    10:10:public java.lang.Object readComponent(com.plectix.simulator.parser.KappaFileParagraph)
+com.plectix.simulator.parser.util.AgentFactory:
+    private static final java.lang.String PATTERN_AGENT_SITE
+    private static final java.lang.String PATTERN_STATE
+    private static final java.lang.String SYMBOL_CONNECTED_TRUE_VALUE
+com.plectix.simulator.parser.util.AgentFormatChecker:
+    private static final java.lang.String PATTERN_LINE_AGENT_SITE
+    private static final java.lang.String PATTERN_LINE_STATE
+    private static final java.lang.String PATTERN_LINE_CONNECTED
+    private static final java.lang.String PATTERN_LINE_SITE_STATE
+    private static final java.lang.String PATTERN_LINE_AGENT
+com.plectix.simulator.simulationclasses.injections.Injection:
+    88:88:public final java.util.Map getCorrespondence()
+    109:109:public final boolean isEmpty()
+com.plectix.simulator.simulationclasses.perturbations.AbstractModification:
+    21:22:public void reset()
+com.plectix.simulator.simulationclasses.perturbations.ComplexCondition:
+    32:32:public com.plectix.simulator.util.InequalitySign inequalitySign()
+com.plectix.simulator.simulationclasses.perturbations.ConditionInterface:
+    public abstract com.plectix.simulator.util.InequalitySign inequalitySign()
+com.plectix.simulator.simulationclasses.perturbations.util.Monome:
+    18:20:public final java.lang.String getModifyingEntityName()
+com.plectix.simulator.simulationclasses.probability.SkipListSelector:
+    private static final double P
+    110:110:public java.util.Set asSet()
+    211:223:public final java.lang.String levelsToString()
+    227:239:public final java.lang.String weightsToString()
+com.plectix.simulator.simulationclasses.probability.WeightedItemSelector:
+    public abstract java.util.Set asSet()
+com.plectix.simulator.simulationclasses.solution.AbstractComplexSolution:
+    36:43:public java.util.Collection split()
+com.plectix.simulator.simulationclasses.solution.SolutionFirstMode:
+    24:24:public final java.util.Collection split()
+com.plectix.simulator.simulationclasses.solution.StorageInterface
+com.plectix.simulator.simulationclasses.solution.StraightStorage:
+    90:98:public final com.plectix.simulator.interfaces.ConnectedComponentInterface extractComponent(com.plectix.simulator.simulationclasses.injections.Injection)
+com.plectix.simulator.simulationclasses.solution.SuperStorage:
+    97:103:public final java.util.Collection split()
+com.plectix.simulator.simulator.KappaSystemInterface:
+    public abstract void initialize(com.plectix.simulator.util.Info$InfoType)
+    public abstract void doPositiveUpdate(com.plectix.simulator.staticanalysis.Rule,java.util.List)
+    public abstract void setRules(java.util.List)
+    public abstract void checkPerturbation(double)
+    public abstract java.util.List getRules()
+    public abstract com.plectix.simulator.staticanalysis.Rule getRuleById(int)
+    public abstract com.plectix.simulator.interfaces.SolutionInterface getSolution()
+    public abstract com.plectix.simulator.staticanalysis.Observables getObservables()
+    public abstract com.plectix.simulator.staticanalysis.stories.Stories getStories()
+    public abstract com.plectix.simulator.staticanalysis.contactmap.ContactMap getContactMap()
+    public abstract com.plectix.simulator.staticanalysis.subviews.AllSubViewsOfAllAgentsInterface getSubViews()
+    public abstract java.util.List getPerturbations()
+    public abstract void addRule(com.plectix.simulator.staticanalysis.Rule)
+    public abstract void setSolution(com.plectix.simulator.interfaces.SolutionInterface)
+    public abstract void setObservables(com.plectix.simulator.staticanalysis.Observables)
+    public abstract void setStories(com.plectix.simulator.staticanalysis.stories.Stories)
+    public abstract void addStories(java.lang.String)
+    public abstract void setPerturbations(java.util.List)
+    public abstract void resetIdGenerators()
+    public abstract void clearRules()
+    public abstract void clearPerturbations()
+    public abstract com.plectix.simulator.staticanalysis.Rule getRandomRule()
+    public abstract double getTimeValue()
+    public abstract com.plectix.simulator.staticanalysis.influencemap.InfluenceMap getInfluenceMap()
+    public abstract com.plectix.simulator.staticanalysis.localviews.LocalViewsMain getLocalViews()
+    public abstract com.plectix.simulator.staticanalysis.speciesenumeration.SpeciesEnumeration getEnumerationOfSpecies()
+    public abstract com.plectix.simulator.io.xml.RuleCompressionXMLWriter getRuleCompressionBuilder()
+com.plectix.simulator.simulator.SimulationArguments:
+    public static final int NUMBER_OF_MILLISECONDS_IN_SECOND
+    public static final int NUMBER_OF_MILLISECONDS_IN_MINUTE
+    public static final int NUMBER_OF_MILLISECONDS_IN_HOUR
+    public static final int NUMBER_OF_MILLISECONDS_IN_DAY
+    public static final int DEFAULT_SEED
+    public static final long DEFAULT_MAX_CLASHES
+    public static final int DEFAULT_NUMBER_OF_POINTS
+    public static final long DEFAULT_WALL_CLOCK_TIME_LIMIT
+    public static final long DEFAULT_MONITOR_PEAK_MEMORY
+    public static final int DEFAULT_CLOCK_PRECISION
+    public static final java.lang.String DEFAULT_XML_SESSION_NAME
+    public static final int DEFAULT_AGENTS_LIMIT
+    public static final int DEFAULT_LIVE_DATA_POINTS
+    public static final java.lang.String DEFAULT_LIVE_DATA_CONSUMER_CLASSNAME
+    108:143:public static void main(java.lang.String[])
+    560:561:public final void setInputCharArray(char[])
+com.plectix.simulator.simulator.SimulationData:
+    159:159:public final java.util.List getSnapshotTimes()
+    163:164:public void setSnapshotTimes(java.util.List)
+com.plectix.simulator.simulator.Simulator:
+    private static final java.lang.String NAME
+    private static final java.lang.String STATUS_READING_KAPPA
+    private static final java.lang.String STATUS_INITIALIZING
+    private static final java.lang.String STATUS_RUNNING
+    private static final java.lang.String STATUS_WRAPPING
+    private static final java.lang.String STATUS_IDLE
+    private static final java.lang.String STATUS_EXCEPTION
+    677:677:public final java.lang.String getName()
+    681:681:public final com.plectix.simulator.simulator.SimulationData getSimulationData()
+com.plectix.simulator.simulator.SimulatorStatus:
+    40:40:public final int getNumberOfObservables()
+    44:44:public final int getObservableCount(int)
+    48:48:public final java.lang.String getObservableName(int)
+com.plectix.simulator.simulator.ThreadLocalData:
+    105:105:public static final com.plectix.simulator.util.NameDictionary getNameDictionary()
+    125:131:public static final void setLogger(com.plectix.simulator.util.io.PlxLogger)
+    153:156:public static final void reset()
+com.plectix.simulator.simulator.ThreadLocalData$7
+com.plectix.simulator.simulator.ThreadLocalData$ThreadLocalContainer:
+    protected abstract java.lang.Object initialValue()
+    25:26:void reset()
+com.plectix.simulator.simulator.initialization.InjectionsBuilder:
+    60:64:public final void build(java.util.Collection)
+com.plectix.simulator.staticanalysis.Agent:
+    public static final int UNMARKED
+    public static final java.lang.String DEFAULT_NAME
+com.plectix.simulator.staticanalysis.ConnectedComponent:
+    386:386:public final java.util.Collection getInjectionsList()
+    410:410:public final com.plectix.simulator.simulationclasses.injections.Injection getFirstInjection()
+com.plectix.simulator.staticanalysis.Link:
+    private static final byte NULL_INDEX
+com.plectix.simulator.staticanalysis.ObservableConnectedComponent:
+    public static final int NO_INDEX
+com.plectix.simulator.staticanalysis.Observables:
+    215:223:public final void calculateObsLast(double,long)
+    370:371:public void setComponentList(java.util.List)
+com.plectix.simulator.staticanalysis.Rule:
+    715:724:public final boolean equalz(com.plectix.simulator.staticanalysis.Rule)
+com.plectix.simulator.staticanalysis.Site:
+    public static final java.lang.String DEFAULT_NAME
+com.plectix.simulator.staticanalysis.abstracting.AbstractAgent:
+    private static final java.lang.String DEFAULT_NAME
+com.plectix.simulator.staticanalysis.abstracting.AbstractSite:
+    private static final java.lang.String DEFAULT_NAME
+com.plectix.simulator.staticanalysis.graphs.Graph:
+    15:15:public final java.util.ArrayList getVertices()
+com.plectix.simulator.staticanalysis.localviews.LocalViewsMain:
+    50:55:public final void addLocalView(com.plectix.simulator.staticanalysis.abstracting.AbstractAgent)
+com.plectix.simulator.staticanalysis.rulecompression.QualitativeCompressor:
+    88:88:public java.util.Collection getGroups()
+com.plectix.simulator.staticanalysis.rulecompression.RootedRule:
+    506:510:public java.util.Collection getActionsString()
+com.plectix.simulator.staticanalysis.rulecompression.RootedRulesGroup:
+    462:462:public com.plectix.simulator.staticanalysis.rulecompression.RootedRule getFirstRule()
+    474:474:public java.util.Collection getRules()
+    478:478:public com.plectix.simulator.staticanalysis.rulecompression.ShadowAgent getObstruction()
+com.plectix.simulator.staticanalysis.rulecompression.RuleMaster:
+    194:194:public com.plectix.simulator.staticanalysis.Rule getRule()
+    198:198:public java.util.Map getMapBefore()
+    202:202:public java.util.Map getMapAfter()
+com.plectix.simulator.staticanalysis.speciesenumeration.Species:
+    private static final int NOT_INITIALIZE
+com.plectix.simulator.staticanalysis.stories.Stories:
+    39:41:public final int getRuleIdAtStories(int)
+com.plectix.simulator.staticanalysis.stories.compressions.CompressionPassport:
+    public abstract void prepareForStrong()
+com.plectix.simulator.staticanalysis.stories.compressions.StrongCompression:
+    377:385:private final boolean isStateTesting(com.plectix.simulator.staticanalysis.stories.storage.WireHashKey,java.lang.Long)
+com.plectix.simulator.staticanalysis.stories.compressions.WeakCompression:
+    public static final long ghostEventId
+com.plectix.simulator.staticanalysis.stories.storage.AbstractState:
+    34:34:public final boolean isBeforeEqualsAfter()
+com.plectix.simulator.staticanalysis.stories.storage.AbstractStorage:
+    60:60:public final com.plectix.simulator.staticanalysis.stories.storage.AtomicEvent getAtomicEvent(com.plectix.simulator.staticanalysis.stories.storage.WireHashKey,java.lang.Long)
+    64:64:public final com.plectix.simulator.staticanalysis.stories.storage.Event getEvent(com.plectix.simulator.staticanalysis.stories.storage.WireHashKey,java.lang.Long)
+com.plectix.simulator.staticanalysis.stories.storage.Event:
+    public static final boolean BEFORE_STATE
+    public static final boolean AFTER_STATE
+com.plectix.simulator.staticanalysis.stories.storage.MasterInformationAboutWires:
+    33:34:public void setInternalStatesByWire(java.util.LinkedHashMap)
+    42:43:public void setLinkStatesByWire(java.util.LinkedHashMap)
+    51:52:public void setNumberOfUnresolvedEventOnWire(java.util.LinkedHashMap)
+com.plectix.simulator.staticanalysis.stories.storage.ReLinker
+com.plectix.simulator.staticanalysis.stories.storage.StoragePassport:
+    156:162:private void print(com.plectix.simulator.staticanalysis.stories.storage.SwapRecord)
+    379:427:private void changeState(java.util.NavigableMap,java.lang.Long,com.plectix.simulator.staticanalysis.stories.storage.StateOfLink,com.plectix.simulator.staticanalysis.stories.storage.StateOfLink)
+    431:474:private void checkFree(java.util.NavigableMap,java.lang.Long)
+    666:666:public final java.util.Map getWiresByIdAgent()
+com.plectix.simulator.staticanalysis.stories.storage.StoryBuilder:
+    15:15:public java.util.LinkedHashMap getStorageWires()
+com.plectix.simulator.staticanalysis.stories.storage.WireStorageInterface:
+    public abstract com.plectix.simulator.staticanalysis.stories.storage.AtomicEvent getAtomicEvent(com.plectix.simulator.staticanalysis.stories.storage.WireHashKey,java.lang.Long)
+    public abstract void handling()
+com.plectix.simulator.staticanalysis.subviews.storage.SubViewsExeption:
+    private static final java.lang.String mess
+com.plectix.simulator.staticanalysis.subviews.storage.SubViewsInterface:
+    public abstract boolean addAbstractAgent(com.plectix.simulator.staticanalysis.abstracting.AbstractAgent)
+    public abstract java.util.List getAllSubViews(com.plectix.simulator.staticanalysis.abstracting.AbstractAgent)
+    public abstract boolean test(com.plectix.simulator.staticanalysis.abstracting.AbstractAgent)
+    public abstract boolean burnRule(com.plectix.simulator.staticanalysis.abstracting.AbstractAgent,com.plectix.simulator.staticanalysis.abstracting.AbstractAgent)
+com.plectix.simulator.staticanalysis.subviews.storage.SubViewsLinkedlist:
+    185:185:public boolean burnRule(com.plectix.simulator.staticanalysis.abstracting.AbstractAgent,com.plectix.simulator.staticanalysis.abstracting.AbstractAgent)
+com.plectix.simulator.streaming.InterpolatingLiveDataConsumer
+com.plectix.simulator.streaming.RawLiveDataConsumer
+com.plectix.simulator.util.DecimalFormatter:
+    9:9:public static final java.lang.String toStringWithSetNumberOfFractionDigits(double,int)
+    59:119:public static void main(java.lang.String[])
+com.plectix.simulator.util.ExponentialMovingAverage
+com.plectix.simulator.util.MemoryUtil:
+    56:65:public static final void dumpUsedMemoryInfoPeriodically(java.io.PrintStream,long)
+    68:69:public static final void dumpUsedMemory(java.io.PrintStream)
+    72:73:public static final java.lang.String getUsedMemory()
+com.plectix.simulator.util.MemoryUtil$1
+com.plectix.simulator.util.MemoryUtil$PeakMemoryUsage:
+    124:124:public final long getHeap()
+    128:128:public final long getNonHeap()
+    132:132:public final long getTotal()
+com.plectix.simulator.util.PersistenceUtils
+com.plectix.simulator.util.PersistenceUtils$DateConverter
+com.plectix.simulator.util.PlxTimer:
+    40:43:public final double getWallClockTimeInSeconds()
+com.plectix.simulator.util.PrimeNumbers2
+com.plectix.simulator.util.RunningMetric
+com.plectix.simulator.util.StatsComputer
+com.plectix.simulator.util.io.PlxLogger:
+    19:20:public final void debug(java.lang.Object,java.lang.Throwable)
+    31:32:public final void error(java.lang.Object)
+    39:40:public final void fatal(java.lang.Object)
+    43:44:public final void info(java.lang.Object,java.lang.Throwable)
+    55:55:public final boolean isEnabledFor(org.apache.log4j.Priority)
+    59:59:public final boolean isInfoEnabled()
+    63:63:public final boolean isTraceEnabled()
+    67:68:public final void log(org.apache.log4j.Priority,java.lang.Object,java.lang.Throwable)
+    71:72:public final void log(org.apache.log4j.Priority,java.lang.Object)
+    75:76:public final void log(java.lang.String,org.apache.log4j.Priority,java.lang.Object,java.lang.Throwable)
+    79:80:public final void trace(java.lang.Object,java.lang.Throwable)
+    83:84:public final void trace(java.lang.Object)
+    87:88:public final void warn(java.lang.Object,java.lang.Throwable)
+    91:92:public final void warn(java.lang.Object)
+com.plectix.simulator.util.io.StringBufferReader
+com.plectix.simulator.util.io.StringBufferWriter
+com.plectix.simulator.util.string.ConnectedComponentToStringInterface
