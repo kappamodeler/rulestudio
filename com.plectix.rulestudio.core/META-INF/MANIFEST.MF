@@ -22,5 +22,4 @@ Export-Package: com.plectix.rulestudio.core,
  com.plectix.rulestudio.core.usagedata,
  com.plectix.rulestudio.core.wizards.resource,
  com.plectix.rulestudio.core.xml
-Bundle-ClassPath: lib/lcnsclnt.jar,
- .
+Bundle-ClassPath: .
