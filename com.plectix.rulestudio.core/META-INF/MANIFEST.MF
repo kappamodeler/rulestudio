@@ -4,7 +4,7 @@ Bundle-Name: Core
 Bundle-SymbolicName: com.plectix.rulestudio.core;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: com.plectix.rulestudio.core.Activator
-Bundle-Vendor: Plectix
+Bundle-Vendor: Fontana Lab at Harvard Medical School
 Require-Bundle: org.eclipse.ui,
  org.eclipse.ui.ide,
  org.eclipse.jface.text,
@@ -17,7 +17,6 @@ Require-Bundle: org.eclipse.ui,
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Bundle-ActivationPolicy: lazy
 Export-Package: com.plectix.rulestudio.core,
- com.plectix.rulestudio.core.license,
  com.plectix.rulestudio.core.perspectives,
  com.plectix.rulestudio.core.usagedata,
  com.plectix.rulestudio.core.wizards.resource,

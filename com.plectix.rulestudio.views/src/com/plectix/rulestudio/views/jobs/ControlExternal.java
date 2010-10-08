@@ -15,7 +15,6 @@ import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.jface.preference.IPreferenceStore;
 
-import com.plectix.rulestudio.core.license.ValidateException;
 import com.plectix.rulestudio.views.Activator;
 import com.plectix.rulestudio.views.simulator.RsLiveData;
 
@@ -291,8 +290,6 @@ public class ControlExternal implements Controller {
 					return new Status(IStatus.ERROR, Activator.PLUGIN_ID, 
 							"Job ran out of memory, set external memory in preferences");
 				}
-			} catch (ValidateException rex) {
-				return Status.CANCEL_STATUS;
 			} catch (Throwable exception) {
 				return new Status(IStatus.ERROR, Activator.PLUGIN_ID, 
 						exception.getLocalizedMessage(), exception);

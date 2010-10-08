@@ -13,8 +13,6 @@ import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
 
-import com.plectix.rulestudio.core.license.ValidateException;
-import com.plectix.rulestudio.core.license.ValidateLicense;
 import com.plectix.rulestudio.core.usagedata.Action;
 import com.plectix.rulestudio.core.usagedata.UsageDataCollector;
 import com.plectix.rulestudio.editors.Activator;
