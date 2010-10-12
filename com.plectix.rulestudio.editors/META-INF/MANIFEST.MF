@@ -4,7 +4,7 @@ Bundle-Name: Editors
 Bundle-SymbolicName: com.plectix.rulestudio.editors;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: com.plectix.rulestudio.editors.Activator
-Bundle-Vendor: PLECTIX
+Bundle-Vendor: Harvard Medical School
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.jface.text,

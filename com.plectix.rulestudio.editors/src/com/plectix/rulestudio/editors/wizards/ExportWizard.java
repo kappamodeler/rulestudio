@@ -83,7 +83,7 @@ public class ExportWizard extends Wizard implements IExportWizard {
 			  	public void run(IProgressMonitor monitor){
 			  		
 			  		IFile file = (IFile)_selection.getFirstElement();			  		
-			  		monitor.beginTask("Uploading Model to Cellucidate", 6);
+			  		monitor.beginTask("Uploading Model to RuleBase", 6);
 			  					  		
 			  		try {				  			
 			  			String content = uploadKappa(monitor, email, apiKey,  bookName, file);
@@ -154,7 +154,7 @@ public class ExportWizard extends Wizard implements IExportWizard {
   		method.setParameter("book_name", bookName);
   		method.setParameter("kappa", fileToString(file));
 
-  		monitor.setTaskName("Uploading model to Cellucidate");
+  		monitor.setTaskName("Uploading model to RuleBase");
   		monitor.worked(1);
   		
    		final int	 responseCode = client.executeMethod(method);
@@ -322,7 +322,7 @@ public class ExportWizard extends Wizard implements IExportWizard {
 				public void run(){
 					MessageDialog.openError(Display.getCurrent().getActiveShell(), 
 							"RuleStudio - Error Uploading Model", 
-		  					"An error uploading your model to Cellucidate." +
+		  					"An error uploading your model to RuleBase." +
 		  					"\n" + error);
 		  	 					
 				}

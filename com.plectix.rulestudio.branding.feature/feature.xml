@@ -3,11 +3,11 @@
       id="com.plectix.rulestudio.branding.feature"
       label="RuleStudio Branding Feature"
       version="1.0.0.qualifier"
-      provider-name="PLECTIX"
+      provider-name="Harvard Medical School"
       plugin="com.plectix.rulestudio.branding">
 
    <description>
-      This feature contains the branding information for RuleStudio for Cellucidate
+      This feature contains the branding information for RuleStudio
    </description>
 
    <copyright>

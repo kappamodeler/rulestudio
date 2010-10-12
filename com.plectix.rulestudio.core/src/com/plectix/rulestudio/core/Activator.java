@@ -20,7 +20,7 @@ public class Activator extends AbstractUIPlugin {
 
 	// The plug-in ID
 	public static final String PLUGIN_ID = "com.plectix.rulestudio.core";
-	private static final String DEFAULT_CELLUCIDATE_URL = "http://api.cellucidate.com";
+	private static final String DEFAULT_CELLUCIDATE_URL = "http://api.rulebase.org";
 	private static String url = null;
 
 	// The shared instance

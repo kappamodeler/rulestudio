@@ -45,7 +45,7 @@ public class ExportToCellucidate implements IEditorActionDelegate {
 			IMarker[] errors = file.findMarkers(Activator.MARKER_TYPE, true, IResource.DEPTH_INFINITE);
 			if (errors != null && errors.length > 0) {
 				Shell parent = Display.getCurrent().getActiveShell();
-				MessageDialog.openInformation(parent, "Upload to Cellucidate", "You must fix the errors and warnings in your Kappa file before uploading it to Cellucidate.");
+				MessageDialog.openInformation(parent, "Upload to RuleBase", "You must fix the errors and warnings in your Kappa file before uploading it to RuleBase.");
 				return;
 			}
 		} catch (CoreException e1) {
@@ -69,10 +69,10 @@ public class ExportToCellucidate implements IEditorActionDelegate {
 				}
 			}else if (wizard.getError() == false){
 				MessageDialog.openInformation(Display.getCurrent().getActiveShell(), 
-					"RuleStudio - Upload to Cellicudate", "Upload to Cellucidate was Successful. You can go online and view it now.");
+					"RuleStudio - Upload to Cellicudate", "Upload to RuleBase was Successful. You can go online and view it now.");
 			}else{
 				MessageDialog.openInformation(Display.getCurrent().getActiveShell(), 
-						"RuleStudio - Failed to Upload", "Errors occurred during the process of loading your model to Cellucidate.");
+						"RuleStudio - Failed to Upload", "Errors occurred during the process of loading your model to RuleBase.");
 			}
 		}
 	}

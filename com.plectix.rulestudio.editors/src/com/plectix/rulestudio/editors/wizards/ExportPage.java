@@ -77,7 +77,7 @@ public class ExportPage extends WizardPage {
 		});
 		
 		label = new Label(container, SWT.NULL);
-		label.setText("Cellucidate Login:");
+		label.setText("RuleBase Login:");
 		
 		_email = new Text(container, SWT.BORDER);
 		 gridData = new GridData(GridData.FILL_HORIZONTAL);

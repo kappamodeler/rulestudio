@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
       id="com.plectix.rulestudio.feature"
-      label="RuleStudio for Cellucidate"
+      label="RuleStudio for RuleBase"
       version="1.0.0.qualifier"
-      provider-name="Plectix">
+      provider-name="Harvard Medical School">
 
    <description>
       This feature contains all the plug-ins necessary to develop your

@@ -39,12 +39,12 @@
 		<editorContribution 
 	    	  	id="com.plectix.rulestudio.actions.editors"
 	   			targetID="com.plectix.rulestudio.editors.kappa.KappaEditor"> 
-			<menu id="kappeditor" label="Cellucidate Tools">            
+			<menu id="kappeditor" label="RuleBase Tools">            
 				<separator name="additions"/>          
 			</menu>
 	   		<action
 	        	id="com.plectix.rulestudio.editors.actions.ExportToCellucidate" 
-	        	label="Upload to Cellucidate"
+	        	label="Upload to RuleBase"
 	        	icon="images/exporttocellucidate.png"
 	      		menubarPath="kappeditor/additions" 
 	      		toolbarPath="KappaEditor"
@@ -92,12 +92,12 @@
   
 	<extension point="org.eclipse.ui.exportWizards">
 		<category id="com.plectix.rulestudio" name="Plectix"/>
-		<wizard id="com.plectix.rulestudio.editors.wizards.ExportWizard" name="Upload to Cellucidate"
+		<wizard id="com.plectix.rulestudio.editors.wizards.ExportWizard" name="Upload to RuleBase"
 			class="com.plectix.rulestudio.editors.wizards.ExportWizard" 
 			category="com.plectix.rulestudio" icon="images/export.png">
 			
 				<description>
-				 Upload the selected model to Cellucidate.
+				 Upload the selected model to RuleBase.
 				</description>
 		       <selection class="org.eclipse.core.resources.IFile"/> 
 		</wizard>

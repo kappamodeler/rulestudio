@@ -22,8 +22,6 @@ public class KappaFile extends BasicNewFileResourceWizard{
 				"# \r\n" + 
 				"# This editor will improve the speed of entering valid kappa by using auto completion and basic syntax checking as you write each line.\r\n" +  
 				"# Auto completion of agents and rules will drop down when you are creating initial conditions, observables or rules that reuse agents in prior rules.\r\n" +  
-				"# \r\n" + 
-				"# Please send comments and feedback on our editor to support@cellucidate.com\r\n" + 
 				"#\r\n\r\n\r\n\r\n";
 	
 	private InputStream _inputStream = null;
